@@ -1,0 +1,35 @@
+html.no-js lang="en" 
+  head
+    meta charset="utf-8" 
+    meta content="width=device-width, initial-scale=1.0" name="viewport" 
+    title Валкол
+    link href="/assets/main.css" rel="stylesheet" 
+    link href="https://fonts.googleapis.com/css?family=Fira+Sans:500,700italic,700,500italic,400italic,400,300italic,300&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css" 
+    script src="/assets/modernizr.js" 
+    script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" 
+    link href="/assets/jquery.bxslider.css" rel="stylesheet" 
+  body
+    = render "header"
+    == yield
+
+    script src="/assets/jquery.js" 
+    script src="/assets/foundation/foundation.js" 
+    script src="/assets/foundation/foundation.topbar.js" 
+    script src="/assets/foundation.min.js"
+    script src="/assets/foundation/foundation.tab.js" 
+    script src="/assets/jquery.bxslider.min.js" 
+    javascript:
+      $(document).ready(function(){
+        $('.bxslider').bxSlider({
+          nextSelector: '.slider-next',
+          prevSelector: '.slider-prev',
+          nextText: '>',
+          prevText: '<',
+          pager: true
+          //pagerSelector: '.pager'
+        });
+      });
+    javascript:
+      $(document).ready(function() {
+          $(document).foundation();
+      })

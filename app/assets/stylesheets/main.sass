@@ -1,0 +1,248 @@
+@import 'reset'
+@import 'general'
+@import 'variables'
+@import 'foundation/_functions.scss'
+@import 'foundation/_settings.scss'
+@import 'foundation.scss'
+body
+	background-color: $body
+	margin: 0 auto
+	font-family: 'Fira Sans', sans-serif
+	font-size: 1em
+.header
+	height: 110px
+	background-color: white
+	width: 100%
+	border-bottom: 1px solid $main
+	.logo
+		float: left
+		max-width: 180px
+		padding: 15px
+		img
+			height: auto
+			widows: auto
+			max-width: 100%
+			max-height: 100%
+	.icons
+		float: right
+		position: relative
+		top: 40px
+		li
+			img
+				max-width: 30px
+				max-height: 30px
+				width: auto
+				height: auto
+.banner
+	height: 500px
+	.bx-wrapper
+		margin: 0 auto
+		height: 100%
+		position: relative
+		right: -5px
+		.bx-viewport
+			border: none
+			height: 100%		
+			.bxslider
+				margin: 0
+				height: inherit
+				li 
+					height: 100%
+					.bg-image
+						background-position: center
+						height: inherit
+						position: absolute
+						width: 100%
+						img
+							width: 100%
+							max-height: 500px
+	.bx-controls
+		position: absolute
+		bottom: 90px
+		right: 30%
+		width: 100px
+		.bx-pager-item
+			.bx-pager-link
+				border-radius: 0
+				background-color: $main
+				&:active
+					background-color: black
+	.inner
+		position: absolute
+		top: 50%
+		transform: translate(100%,-50%)
+		@media only screen and (max-width: 40.0625em)
+			position: absolute
+			top: 50%
+			transform: translate(-100%, -50%)
+		.inner_container
+			position: relative
+			.brackets
+				font-size: 72px
+				color: $main
+				position: absolute
+				top: -73px
+				a
+					color: rgba(42,93,110, 0.6)
+					transition: .15s
+					&:hover
+						color: rgba(56,177,208, 0.5)
+			.inner_text
+				padding: 15px
+				width: 380px
+				height: 210px
+				color: white
+				background: rgba(42,93,110, 0.6)
+		h1
+			color: white
+			line-height: 1
+		p 	
+			font-size: 1em
+			line-height: 1.2
+.menu
+	position: relative
+	top: -50px
+	z-index: 10
+	.top-bar
+		min-height: 70px
+		.title-area
+			min-height: 70px
+			background: linear-gradient(#3C7589, #123B41)
+		.top-bar-section
+			ul
+				li 
+					background: linear-gradient(#3C7589, #123B41)
+					@media only screen and (min-width: 40.0625em)
+						width: 20%
+					a 
+						font-size: 1.125em
+						text-transform: uppercase
+.section			
+	position: relative
+	top: -50px
+	.bcg_color
+		background-color: white
+	.section_1
+		border-bottom: 1px solid #D2D6D7
+		.logo_resp
+			@media only screen and (max-width: 40.0625em)
+			height: 150px
+		.section_logo
+			margin: 80px auto
+			width: 150px
+			@media only screen and (max-width: 40.0625em)
+				margin: 20px auto
+		.section_about_us
+			padding: 70px 0 0 0
+			@media only screen and (max-width: 40.0625em)
+				padding: 10px 0 0 0
+			p
+				color: grey
+				font-size: 0.875em
+	.section_2
+		ul
+			li 
+				line-height: 2.5
+				p 
+					font-size: 0.875em
+					color: #9EB9CA
+	.section_3
+		ul
+			li 	
+				line-height: 2.5
+				p 
+					font-size: 0.875em
+					color: #9EB9CA
+				span
+					color: grey
+	.inserts_buttons
+		.tab-title
+		li 
+			width: 50%
+			a 
+				text-transform: uppercase
+				text-align: center
+				color: grey
+				font-weight: bold
+				outline: none
+				background-color: white
+				&:hover
+					color: $main
+					background-color: white
+				&:active
+					color: $main
+					background-color: white
+	.inserts
+		min-height: 400px
+	.insert_content
+		.photo
+			width: 100%
+			height: 170px
+			background-color: $main
+			overflow: hidden
+		p 
+			font-weight: bold
+			color: $main
+			margin-top: 10px
+			line-height: 21px
+		.insert_icons
+			width: 17px
+		span
+			color: #949599
+			font-style: italic
+			font-size: 0.875em
+		a
+			transform: .3s 	
+			&:hover
+				p 	
+					color: #3E1527
+	.section_4
+		border-bottom: 1px solid #D2D6D7
+	.certificates
+		padding: 20px 15px
+		.certificate
+			height: 180px
+			width: 135px
+			background-image: image-url("cerfiticate.jpg")
+			background-size: cover
+			background-repeat: no-repeat
+	.section_5
+		padding: 30px
+		p
+			font-size: 0.875em
+			color: grey
+.footer
+	background-color: $body
+	.footer_section
+		padding: 20px 0 0 30px
+	img
+		width: 60px
+		float: left
+		position: relative
+		top: -10px
+		padding-right: 10px
+	p 
+		font-size: 0.75em
+		color: grey
+	.footer_nav
+		.inline-list
+			padding-top: 10px
+			width: 400px
+			margin: 0
+			li
+				margin: 0
+				padding: 0 5px
+				border-right: 2px solid grey
+				height: 18px
+				&:last-child
+					border: none
+			p
+				text-transform: uppercase
+				text-align: center
+				font-weight: bold
+				color: $main
+				font-size: 1em
+	hr
+		border-style: dotted
+		margin: 0
+		padding: 0
