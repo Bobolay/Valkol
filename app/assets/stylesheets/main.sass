@@ -1,11 +1,15 @@
-@import 'reset'
-@import 'general'
 @import 'variables'
+@import 'general'
 @import 'foundation/_functions.scss'
 @import 'foundation/_settings.scss'
 @import 'foundation.scss'
+@import 'about_us'
+@import 'services'
+@import 'service_list'
+@import 'prices'
+@import 'contacts'
 body
-	background-color: $body
+	background-color: $light_grey
 	margin: 0 auto
 	font-family: 'Fira Sans', sans-serif
 	font-size: 1em
@@ -13,7 +17,6 @@ body
 	height: 110px
 	background-color: white
 	width: 100%
-	border-bottom: 1px solid $main
 	.logo
 		float: left
 		max-width: 180px
@@ -27,6 +30,8 @@ body
 		float: right
 		position: relative
 		top: 40px
+		@media only screen and (max-width: 480px)
+			display: none
 		li
 			img
 				max-width: 30px
@@ -35,8 +40,11 @@ body
 				height: auto
 .banner
 	height: 500px
+	border-top: 1px solid $main
+	border-bottom: 1px solid $main
 	.bx-wrapper
 		margin: 0 auto
+		padding: 2px 0
 		height: 100%
 		position: relative
 		right: -5px
@@ -69,13 +77,9 @@ body
 				&:active
 					background-color: black
 	.inner
-		position: absolute
-		top: 50%
-		transform: translate(100%,-50%)
-		@media only screen and (max-width: 40.0625em)
-			position: absolute
-			top: 50%
-			transform: translate(-100%, -50%)
+		position: relative
+		top: 30%
+		left: 10%
 		.inner_container
 			position: relative
 			.brackets
@@ -100,70 +104,78 @@ body
 		p 	
 			font-size: 1em
 			line-height: 1.2
-.menu
+.index_menu
 	position: relative
 	top: -50px
+.menu
+	position: relative
 	z-index: 10
 	.top-bar
 		min-height: 70px
-		.title-area
-			min-height: 70px
-			background: linear-gradient(#3C7589, #123B41)
 		.top-bar-section
 			ul
 				li 
 					background: linear-gradient(#3C7589, #123B41)
 					@media only screen and (min-width: 40.0625em)
 						width: 20%
-					a 
+					a
 						font-size: 1.125em
 						text-transform: uppercase
+						text-align: center
+						width: 100%
+						@media only screen and (max-width: 800px)
+							font-size: 0.8em
+					.dropdown
+						li 
+							width: 100%
+							&:last-child
+								border-bottom: 3px solid $blue
+							a
+								font-size: 0.875em
+								text-transform: none
+								color: $navy
+								height: 50px
+								text-align: left
+								background: white !important
+								color: $navy !important
+								@media only screen and (max-width: 40.0625em)
+									font-size: 0.75em
+								&:hover
+									background: $red_violet !important
+									color: white !important
 .section			
 	position: relative
 	top: -50px
 	.bcg_color
 		background-color: white
-	.section_1
-		border-bottom: 1px solid #D2D6D7
-		.logo_resp
-			@media only screen and (max-width: 40.0625em)
-			height: 150px
-		.section_logo
-			margin: 80px auto
-			width: 150px
-			@media only screen and (max-width: 40.0625em)
-				margin: 20px auto
-		.section_about_us
-			padding: 70px 0 0 0
-			@media only screen and (max-width: 40.0625em)
-				padding: 10px 0 0 0
-			p
-				color: grey
-				font-size: 0.875em
-	.section_2
-		ul
-			li 
-				line-height: 2.5
-				p 
-					font-size: 0.875em
-					color: #9EB9CA
-	.section_3
-		ul
-			li 	
-				line-height: 2.5
-				p 
-					font-size: 0.875em
-					color: #9EB9CA
-				span
-					color: grey
+	.section_logo
+		margin: 80px auto
+		width: 150px
+		@media only screen and (max-width: 40.0625em)
+			margin: 20px auto
+	.section_about_us
+		padding: 30px 0 0 0
+		@media only screen and (max-width: 40.0625em)
+			padding: 10px 0 0 0
+		p
+			color: grey
+			font-size: 0.875em
+	.section_header
+		font-weight: bold
+	ul
+		li 
+			line-height: 2.5
+			color: #9EB9CA
+			span
+				color: $grey
 	.inserts_buttons
-		.tab-title
 		li 
 			width: 50%
+			position: relative
 			a 
 				text-transform: uppercase
 				text-align: center
-				color: grey
+				color: $grey
 				font-weight: bold
 				outline: none
 				background-color: white
@@ -173,32 +185,40 @@ body
 				&:active
 					color: $main
 					background-color: white
+			.button_arrow
+				border: 1px solid $blue
+				padding: 2px 5px
+				position: absolute
+				right: 0
+				top: 20px
+				line-height: 20px
+				font-size: 1.5em
+				font-weight: bold
+				a 
+					color: $blue
 	.inserts
 		min-height: 400px
-	.insert_content
-		.photo
-			width: 100%
-			height: 170px
-			background-color: $main
-			overflow: hidden
-		p 
-			font-weight: bold
-			color: $main
-			margin-top: 10px
-			line-height: 21px
-		.insert_icons
-			width: 17px
-		span
-			color: #949599
-			font-style: italic
-			font-size: 0.875em
-		a
-			transform: .3s 	
-			&:hover
-				p 	
-					color: #3E1527
-	.section_4
-		border-bottom: 1px solid #D2D6D7
+		.insert_content
+			.photo
+				height: 170px
+				background-size: cover
+			p 
+				font-weight: bold
+				color: $main
+				margin-top: 10px
+				line-height: 21px
+			.insert_icons
+				width: 17px
+			span
+				color: $medium_grey
+				font-style: italic
+				font-size: 0.875em
+				padding-left: 10px
+			a
+				transform: .3s 	
+				&:hover
+					p 	
+						color: $red_violet
 	.certificates
 		padding: 20px 15px
 		.certificate
@@ -207,13 +227,11 @@ body
 			background-image: image-url("cerfiticate.jpg")
 			background-size: cover
 			background-repeat: no-repeat
-	.section_5
-		padding: 30px
-		p
-			font-size: 0.875em
-			color: grey
+	p 
+		color: $dark_grey
+		font-size: 0.875em
 .footer
-	background-color: $body
+	background-color: $light_grey
 	.footer_section
 		padding: 20px 0 0 30px
 	img
@@ -234,16 +252,35 @@ body
 				margin: 0
 				padding: 0 5px
 				border-right: 2px solid grey
-				height: 18px
+				height: 16px
 				&:last-child
 					border: none
-			p
+			a
 				text-transform: uppercase
-				text-align: center
 				font-weight: bold
 				color: $main
 				font-size: 1em
+				line-height: 1em
 	hr
 		border-style: dotted
 		margin: 0
 		padding: 0
+.breadcrumbs
+	overflow: visible
+	border: none
+	background-color: $light_grey
+	line-height: 40px
+	padding: 0
+	li
+		text-transform: none
+		font-size: 1em
+		line-height: 40px
+		a
+			font-size: 0.875em
+			color: grey
+			img
+				position: relative
+				top: -2px
+.fancybox-lock
+	body
+		overflow: visible !important
