@@ -1,0 +1,64 @@
+.contacts_banner
+	=render "menu"
+	#location-canvas
+	a id="scale_button" +
+=render "breadcrumbs"
+.row.bcg_color
+	.medium-12.columns
+		.row
+			.medium-12.columns.underlined
+				h3.header_right зв'язатись з нами
+		.row.contacts_field.padding
+			.medium-6.columns
+				table.table_contacts
+					tr
+						td
+							img alt="phone" src=asset_path("contacts/phone.png")
+						td
+							p тел.:
+						td
+							p.contacts_numbers +38 (032) 225 62 08
+					tr
+						td
+							img alt="fax" src=asset_path("contacts/fax.png")
+						td
+							p факс.:
+						td
+							p.contacts_numbers +38 (032) 225 62 06
+					tr
+						td
+							img alt="skype" src=asset_path("contacts/skype.png")
+						td
+							p skype:
+						td
+							p.contacts_numbers valkolconsulting
+			.medium-6.columns
+				table.table_contacts
+					tr
+						td
+							img alt="mail" src=asset_path("contacts/mail.png")
+						td
+							p last_ocinka@ukr.net
+					tr
+						td
+							img alt="location" src=asset_path("contacts/location.png")
+						td
+							p
+								|вул. Ш.Руставелі, 34а/21 М
+								br
+								|м. Львів, 79005
+		.row
+			.medium-12.columns.underlined
+				h3.header_right форма зворотнього зв'язку
+		.row.padding
+			.medium-6.columns
+				form
+					input type="text" placeholder="Ім'я"
+				form
+					input type="text" placeholder="Телефон"
+				form
+					input type="text" placeholder="Електронна скринька"
+			.medium-6.columns
+				form
+					textarea rows="8" placeholder="Ваше повідомлення"
+					button.right надіслати
