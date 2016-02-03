@@ -7,6 +7,9 @@
 @import 'services'
 @import 'service_list'
 @import 'prices'
+@import 'publications1'
+@import 'publications2'
+@import 'publications3'
 @import 'contacts'
 body
 	background-color: $light_grey
@@ -168,57 +171,73 @@ body
 			color: #9EB9CA
 			span
 				color: $grey
-	.inserts_buttons
+.inserts_buttons
+	border-bottom: 1px solid $light_grey
+	.active
+		border-top: 3px solid $navy
+		border-bottom: none
+		border-left: 1px solid $light_grey
+		border-right: 1px solid $light_grey
+		&:after
+			content: ''
+			width: 100%
+			height: 1px
+			background-color: white
+			position: absolute
+			bottom: -1px
+	.tab-title
+		a 
+			background-color: white
+			&:hover
+				background-color: white
+	ul
 		li 
 			width: 50%
 			position: relative
+			line-height: 1
 			a 
 				text-transform: uppercase
 				text-align: center
 				color: $grey
 				font-weight: bold
 				outline: none
-				background-color: white
+				padding: 0
 				&:hover
 					color: $main
-					background-color: white
-				&:active
-					color: $main
-					background-color: white
 			.button_arrow
 				border: 1px solid $blue
 				padding: 2px 5px
 				position: absolute
-				right: 0
-				top: 20px
+				right: 5px
+				top: 10px
 				line-height: 20px
 				font-size: 1.5em
 				font-weight: bold
 				a 
 					color: $blue
-	.inserts
-		min-height: 400px
-		.insert_content
-			.photo
-				height: 170px
-				background-size: cover
-			p 
-				font-weight: bold
-				color: $main
-				margin-top: 10px
-				line-height: 21px
-			.insert_icons
-				width: 17px
-			span
-				color: $medium_grey
-				font-style: italic
-				font-size: 0.875em
-				padding-left: 10px
-			a
-				transform: .3s 	
-				&:hover
-					p 	
-						color: $red_violet
+.inserts
+	.insert_content
+		padding-bottom: 10px
+		margin-bottom: 30px
+		.photo
+			height: 170px
+			background-size: cover
+		p 
+			font-weight: bold
+			color: $main
+			margin-top: 10px
+			line-height: 21px
+		.insert_icons
+			width: 17px
+		span
+			color: $medium_grey
+			font-style: italic
+			font-size: 0.875em
+			padding-left: 10px
+		a
+			&:hover
+				p 	
+					color: $red_violet
 	.certificates
 		padding: 20px 15px
 		.certificate
@@ -227,13 +246,12 @@ body
 			background-image: image-url("cerfiticate.jpg")
 			background-size: cover
 			background-repeat: no-repeat
+.under_sertificates	
 	p 
 		color: $dark_grey
 		font-size: 0.875em
 .footer
 	background-color: $light_grey
-	.footer_section
-		padding: 20px 0 0 30px
 	img
 		width: 60px
 		float: left
@@ -244,6 +262,8 @@ body
 		font-size: 0.75em
 		color: grey
 	.footer_nav
+		.lined
+			border-bottom: 1px dotted $dark_grey
 		.inline-list
 			padding-top: 10px
 			width: 400px
@@ -251,7 +271,7 @@ body
 			li
 				margin: 0
 				padding: 0 5px
-				border-right: 2px solid grey
+				border-right: 2px solid $grey
 				height: 16px
 				&:last-child
 					border: none
@@ -261,10 +281,6 @@ body
 				color: $main
 				font-size: 1em
 				line-height: 1em
-	hr
-		border-style: dotted
-		margin: 0
-		padding: 0
 .breadcrumbs
 	overflow: visible
 	border: none

@@ -93,3 +93,11 @@ html.no-js lang="en"
       $(document).ready(function() {
             $('.fancybox').fancybox();
         });
+    javascript:
+      var button = document.getElementById('scale');
+      button.onclick = function increaseHeight(){
+          var map = document.getElementById("location-canvas");
+          var height = map.offsetHeight;
+          var newHeight = height + 250;
+          map.style.height = newHeight + 'px';
+        }

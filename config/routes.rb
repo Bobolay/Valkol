@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get "service_list", to: "pages#service_list"
   get "prices", to: "pages#prices"
   get "contacts", to: "pages#contacts"
+  get "publications1", to: "pages#publications1"
+  get "publications2", to: "pages#publications2"
+  get "publications3", to: "pages#publications3"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
