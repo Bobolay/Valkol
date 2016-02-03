@@ -1,0 +1,302 @@
+@import 'variables'
+@import 'general'
+@import 'foundation/_functions.scss'
+@import 'foundation/_settings.scss'
+@import 'foundation.scss'
+@import 'about_us'
+@import 'services'
+@import 'service_list'
+@import 'prices'
+@import 'publications1'
+@import 'publications2'
+@import 'publications3'
+@import 'contacts'
+body
+	background-color: $light_grey
+	margin: 0 auto
+	font-family: 'Fira Sans', sans-serif
+	font-size: 1em
+.header
+	height: 110px
+	background-color: white
+	width: 100%
+	.logo
+		float: left
+		max-width: 180px
+		padding: 15px
+		img
+			height: auto
+			widows: auto
+			max-width: 100%
+			max-height: 100%
+	.icons
+		float: right
+		position: relative
+		top: 40px
+		@media only screen and (max-width: 480px)
+			display: none
+		li
+			img
+				max-width: 30px
+				max-height: 30px
+				width: auto
+				height: auto
+.banner
+	height: 500px
+	border-top: 1px solid $main
+	border-bottom: 1px solid $main
+	.bx-wrapper
+		margin: 0 auto
+		padding: 2px 0
+		height: 100%
+		position: relative
+		right: -5px
+		.bx-viewport
+			border: none
+			height: 100%		
+			.bxslider
+				margin: 0
+				height: inherit
+				li 
+					height: 100%
+					.bg-image
+						background-position: center
+						background-size: cover
+						height: inherit
+						position: absolute
+						width: 100%
+						img
+							width: 100%
+							max-height: 500px
+	.bx-controls
+		position: absolute
+		bottom: 90px
+		right: 30%
+		width: 100px
+		.bx-pager-item
+			.bx-pager-link
+				border-radius: 0
+				background-color: $main
+				&:active
+					background-color: black
+	.inner
+		position: relative
+		top: 30%
+		left: 10%
+		.inner_container
+			position: relative
+			.brackets
+				font-size: 72px
+				color: $main
+				position: absolute
+				top: -73px
+				a
+					color: rgba(42,93,110, 0.6)
+					transition: .15s
+					&:hover
+						color: rgba(56,177,208, 0.5)
+			.inner_text
+				padding: 15px
+				width: 380px
+				height: 210px
+				color: white
+				background: rgba(42,93,110, 0.6)
+		h1
+			color: white
+			line-height: 1
+		p 	
+			font-size: 1em
+			line-height: 1.2
+.index_menu
+	position: relative
+	top: -50px
+.menu
+	position: relative
+	z-index: 10
+	.top-bar
+		min-height: 70px
+		.top-bar-section
+			ul
+				li 
+					background: linear-gradient(#3C7589, #123B41)
+					@media only screen and (min-width: 40.0625em)
+						width: 20%
+					a
+						font-size: 1.125em
+						text-transform: uppercase
+						text-align: center
+						width: 100%
+						@media only screen and (max-width: 800px)
+							font-size: 0.8em
+					.dropdown
+						li 
+							width: 100%
+							&:last-child
+								border-bottom: 3px solid $blue
+							a
+								font-size: 0.875em
+								text-transform: none
+								color: $navy
+								height: 50px
+								text-align: left
+								background: white !important
+								color: $navy !important
+								@media only screen and (max-width: 40.0625em)
+									font-size: 0.75em
+								&:hover
+									background: $red_violet !important
+									color: white !important
+.section			
+	position: relative
+	top: -50px
+	.bcg_color
+		background-color: white
+	.section_logo
+		margin: 80px auto
+		width: 150px
+		@media only screen and (max-width: 40.0625em)
+			margin: 20px auto
+	.section_about_us
+		padding: 30px 0 0 0
+		@media only screen and (max-width: 40.0625em)
+			padding: 10px 0 0 0
+		p
+			color: grey
+			font-size: 0.875em
+	.section_header
+		font-weight: bold
+	ul
+		li 
+			line-height: 2.5
+			color: #9EB9CA
+			span
+				color: $grey
+.inserts_buttons
+	border-bottom: 1px solid $light_grey
+	.active
+		border-top: 3px solid $navy
+		border-bottom: none
+		border-left: 1px solid $light_grey
+		border-right: 1px solid $light_grey
+		&:after
+			content: ''
+			width: 100%
+			height: 1px
+			background-color: white
+			position: absolute
+			bottom: -1px
+	.tab-title
+		a 
+			background-color: white
+			&:hover
+				background-color: white
+	ul
+		li 
+			width: 50%
+			position: relative
+			line-height: 1
+			a 
+				text-transform: uppercase
+				text-align: center
+				color: $grey
+				font-weight: bold
+				outline: none
+				padding: 0
+				&:hover
+					color: $main
+			.button_arrow
+				border: 1px solid $blue
+				padding: 2px 5px
+				position: absolute
+				right: 5px
+				top: 10px
+				line-height: 20px
+				font-size: 1.5em
+				font-weight: bold
+				a 
+					color: $blue
+.inserts
+	.insert_content
+		padding-bottom: 10px
+		margin-bottom: 30px
+		.photo
+			height: 170px
+			background-size: cover
+		p 
+			font-weight: bold
+			color: $main
+			margin-top: 10px
+			line-height: 21px
+		.insert_icons
+			width: 17px
+		span
+			color: $medium_grey
+			font-style: italic
+			font-size: 0.875em
+			padding-left: 10px
+		a
+			&:hover
+				p 	
+					color: $red_violet
+	.certificates
+		padding: 20px 15px
+		.certificate
+			height: 180px
+			width: 135px
+			background-image: image-url("cerfiticate.jpg")
+			background-size: cover
+			background-repeat: no-repeat
+.under_sertificates	
+	p 
+		color: $dark_grey
+		font-size: 0.875em
+.footer
+	background-color: $light_grey
+	img
+		width: 60px
+		float: left
+		position: relative
+		top: -10px
+		padding-right: 10px
+	p 
+		font-size: 0.75em
+		color: grey
+	.footer_nav
+		.lined
+			border-bottom: 1px dotted $dark_grey
+		.inline-list
+			padding-top: 10px
+			width: 400px
+			margin: 0
+			li
+				margin: 0
+				padding: 0 5px
+				border-right: 2px solid $grey
+				height: 16px
+				&:last-child
+					border: none
+			a
+				text-transform: uppercase
+				font-weight: bold
+				color: $main
+				font-size: 1em
+				line-height: 1em
+.breadcrumbs
+	overflow: visible
+	border: none
+	background-color: $light_grey
+	line-height: 40px
+	padding: 0
+	li
+		text-transform: none
+		font-size: 1em
+		line-height: 40px
+		a
+			font-size: 0.875em
+			color: grey
+			img
+				position: relative
+				top: -2px
+.fancybox-lock
+	body
+		overflow: visible !important
