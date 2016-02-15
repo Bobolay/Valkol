@@ -2,22 +2,24 @@
   =render "menu"
 =render "breadcrumbs"
 .row.bcg_color
-	.medium-12.columns
-		.row.padding_side
-			.medium-4.columns.inserts.padding
-				.medium-12.columns.insert_content.padding_top
-					  a href="#"
-					    .photo style="background-image: url(#{asset_path('publications/222.jpg')})"
-					  a href="#"
-					    p Тенденції ринку нерухомості УКраїни
-					  .row
-					    .small-6.columns
-					      img.insert_icons alt="date" height="50" src=asset_path("date.png") width="50"
-					      span 12/01/2015
-					    .small-6.columns
-					      img.insert_icons alt="comments" src=asset_path("massage.png")
-					      span 5 коментарів
-					  img.insert_icons alt="tag" src=asset_path("tag.png")
-					  a href="#"
-					    span Оцінка нерухомості
-			.medium-8.columns.publication.padding_side
+  .small-12.columns
+    .row.padding_side
+      .medium-4.columns.inserts.padding
+        .medium-12.columns.insert_content.padding_top
+          a href="#"
+            .photo style="background-image: url(#{asset_path('publications/222.jpg')})"
+          a href="#"
+            p Тенденції ринку нерухомості УКраїни
+          .row
+            .small-6.columns
+              img.insert_icons alt="date" height="50" src=asset_path("date.png") width="50"
+              span 12/01/2015
+            .small-6.columns
+              img.insert_icons alt="comments" src=asset_path("massage.png")
+              span 5 коментарів
+          img.insert_icons alt="tag" src=asset_path("tag.png")
+          a href="#"
+            span Оцінка нерухомості
+      .medium-8.columns.publication.padding_side
+  .columns.small-12
+    = render "disqus_comments"
