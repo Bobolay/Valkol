@@ -1,0 +1,8 @@
+@import "../codemirror/lib/codemirror.css";
+
+<% %w(ambiance).each do |theme| %>
+@import "codemirror/theme/<%= theme %>";
+<% end %>
+
+@import "codemirror/addon/display/fullscreen";
+

@@ -18,3 +18,7 @@
 /Gemfile.lock
 /vendor/assets/bower_components
 /public
+
+.idea
+vendor/assets/.bowerrc
+vendor/assets/bower.json

@@ -1,0 +1,24 @@
+.service_list_banner
+	=render "menu"
+=render "breadcrumbs"
+- letters = %w(а б в г ґ д е є ж з и і ї й к л м н о п р с т у ф х ц ч ш щ ь ю я )
+.row.bcg_color
+	.medium-12.columns.service_list
+        - @service_categories.each_with_index do |category, category_index|
+          .row.lined
+            .medium-1.columns
+              .marker.main_marker
+                = category_index + 1
+            .medium-11.columns
+              h4.section_header
+                = category.name
+              == slim(category.content)
+              ul
+                - category.services.published.sort_by_sorting_position.each_with_index do |s, i|
+                  li
+                      .marker
+                          = category_index + 1
+                          span
+                            = letters[i]
+                      a href=s.url
+                        = s.name

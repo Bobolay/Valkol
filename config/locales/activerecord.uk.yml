@@ -1,0 +1,29 @@
+uk:
+  activerecord:
+    models:
+      pages/about_us: "Про нас"
+      pages/contacts: "Контакти"
+      pages/home: "Головна"
+      pages/interesting_articles: "Цікаві статті"
+      pages/pricing: "Ціни"
+      pages/publications: "Публікації"
+      pages/services: "Послуги"
+
+      interesting_article:
+        one: "Цікава стаття"
+        other: "Цікаві статті"
+      publication:
+        one: "Публікація"
+        other: "Публікації"
+      service:
+        one: "Послуга"
+        other: "Послуги"
+      service_category:
+        one: "Категорія послуг"
+        other: "Категорії послуг"
+      member:
+        one: "Член команди"
+        other: "Члени команди"
+      certificate:
+        one: "Сертифікат"
+        other: "Сертифікати"

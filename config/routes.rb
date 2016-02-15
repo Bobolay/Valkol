@@ -1,14 +1,38 @@
 Rails.application.routes.draw do
 
   root to: "pages#index"
-  get "about_us", to: "pages#about_us"
-  get "services", to: "pages#services"
-  get "service_list", to: "pages#service_list"
-  get "prices", to: "pages#prices"
-  get "contacts", to: "pages#contacts"
-  get "publications1", to: "pages#publications1"
-  get "publications2", to: "pages#publications2"
-  get "publications3", to: "pages#publications3"
+
+  scope :services, controller: :services do
+    root action: :index, as: :services
+    get ":id", action: :show, as: :service
+  end
+
+  scope :publications, controller: :articles do
+    root action: :index, as: :publications
+    get ":id", action: :show, as: :publication
+  end
+
+  scope :intresting_articles, controller: :articles do
+    root action: :index, as: :intresting_articles
+    get ":id", action: :show, as: :intresting_article
+  end
+
+
+
+  controller :pages do
+    get "about-us", action: "about_us", as: :about_us
+    get "pricing", action: "pricing", as: :pricing
+    get "contacts", action: "contacts", as: :contacts
+  end
+
+
+  post "message", to: "messages#create"
+
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

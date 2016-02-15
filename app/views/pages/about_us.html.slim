@@ -4,129 +4,84 @@
 .row.bcg_color
   .medium-12.columns
     .row
-  		.medium-12.columns.underlined
-      			h3.header_right історія
-		.row
-  		.medium-3.columns.side_nav
-  			ul.no-bullet.sub-nav
-  				li
-  					a href="#" Історія
-  				li
-  					a href="#experience" Наш досвід
-  				li
-  					a href="#team" Команда
-  		.medium-9.columns
-  			h4.section_header консалтингова компанія тзов &lsaquo;&lsaquo;валкол&rsaquo;&rsaquo;	
-  			table.table_abus
-  				tr
-  					td Свідоцтво про державну реєстрацію АОО:
-  					td № 379616
-  				tr
-  					td Ідентифікаційний код:
-  					td 13819807
-  				tr
-  					td р/р у ЗАТ &lsaquo;&lsaquo;ОТП Банк&rsaquo;&rsaquo; в м. Київ:
-  					td 26003001307518
-  				tr
-  					td Сертифікат суб'єкта оціночної діяльності виданого Фондом державного майна України:
-  					td № 8314/09 від 19.02.2009р.
-  				tr
-  					td Ліцензії Державного комітету України із земельних ресурсів АВ:
-  					td № 390699 від 03.07.2008р.
-  			h4.section_header хто ми...
-  			p.main_text На сьогоднішній момент компанія &lsaquo;&lsaquo;валкол&rsaquo;&rsaquo; - аналітично-консалтингове підприємство, діяльність якого пов'язана в тому числі з оцінкою майна та майнових прав, матеріальних та нематеріальних активів, заставного майна та земельних ділянок. За оціночними висновками компанії приймалися майнові рішення Центральним апаратом ФДМУ і його обласними та регіональними відділеннями, провідними операторами фінансових послуг України, міжнародним аудитом та провідними підприємствами України, а також виконавчими службами Львова та Львівської області.
-  			p.main_text Нашим новим напрямком в галузі незалежної оцінки нерухомого та рухомого майна є визначення оціночної (ринкової) вартості з метою оподаткування при вчиненні дій купівлі-продажу. Компанія працює на ринку оціночно-консалтингових послуг більше 10 років та надає якісні та професійні послуги фізичним та юридичним особам. У складі ТзОВ &lsaquo;&lsaquo;валкол&rsaquo;&rsaquo; працюють сертифіковані оцінювачі з великим досвідом практичної роботи, у т.ч. один доктор і один кандидат наук, спеціалісти з аналізу ринку нерухомості та розробки теоретичних та практичних положень оціночної діяльності.
-            .certificates_slider
-              .slider4
-                .slide
-                  a.fancybox href=asset_path("slider_sert/13.jpg") rel="gallery"
-                    .bg-image style="background-image: url(#{asset_path('slider_sert/13.jpg')})"
-                      .overlay
-                .slide
-                  a.fancybox href=asset_path("slider_sert/14.jpg") rel="gallery"                 
-                    .bg-image style="background-image: url(#{asset_path('slider_sert/14.jpg')})"
-                      .overlay
-                .slide
-                  a.fancybox href=asset_path("slider_sert/13.jpg") rel="gallery"
-                    .bg-image style="background-image: url(#{asset_path('slider_sert/13.jpg')})"
-                      .overlay
-                .slide
-                  a.fancybox href=asset_path("slider_sert/14.jpg") rel="gallery"  
-                    .bg-image style="background-image: url(#{asset_path('slider_sert/14.jpg')})"
-                      .overlay
-                .slide
-                  a.fancybox href=asset_path("slider_sert/13.jpg") rel="gallery"
-                    .bg-image style="background-image: url(#{asset_path('slider_sert/13.jpg')})"
-                      .overlay
-                .slide
-                  a.fancybox href=asset_path("slider_sert/14.jpg") rel="gallery"                 
-                    .bg-image style="background-image: url(#{asset_path('slider_sert/14.jpg')})"
-                      .overlay
-                .slide
-                  a.fancybox href=asset_path("slider_sert/13.jpg") rel="gallery"
-                    .bg-image style="background-image: url(#{asset_path('slider_sert/13.jpg')})"
-                      .overlay
-                .slide
-                  a.fancybox href=asset_path("slider_sert/14.jpg") rel="gallery"                 
-                    .bg-image style="background-image: url(#{asset_path('slider_sert/14.jpg')})"
-                      .overlay
+      .medium-12.columns.underlined
+        h3.header_right історія
+      .row
+      .medium-3.columns.side_nav
+        ul.no-bullet.sub-nav
+          li
+            a href="#" Історія
+          li
+            a href="#experience" Наш досвід
+          li
+            a href="#team" Команда
+      .medium-9.columns
+        == html_block_with_fallback(:history, true)
+          h4.section_header консалтингова компанія тзов &lsaquo;&lsaquo;валкол&rsaquo;&rsaquo;
+          table.table_abus
+            tr
+              td Свідоцтво про державну реєстрацію АОО:
+              td № 379616
+            tr
+              td Ідентифікаційний код:
+              td 13819807
+            tr
+              td р/р у ЗАТ &lsaquo;&lsaquo;ОТП Банк&rsaquo;&rsaquo; в м. Київ:
+              td 26003001307518
+            tr
+              td Сертифікат суб'єкта оціночної діяльності виданого Фондом державного майна України:
+              td № 8314/09 від 19.02.2009р.
+            tr
+              td Ліцензії Державного комітету України із земельних ресурсів АВ:
+              td № 390699 від 03.07.2008р.
+          h4.section_header хто ми...
+          p.main_text На сьогоднішній момент компанія &lsaquo;&lsaquo;валкол&rsaquo;&rsaquo; - аналітично-консалтингове підприємство, діяльність якого пов'язана в тому числі з оцінкою майна та майнових прав, матеріальних та нематеріальних активів, заставного майна та земельних ділянок. За оціночними висновками компанії приймалися майнові рішення Центральним апаратом ФДМУ і його обласними та регіональними відділеннями, провідними операторами фінансових послуг України, міжнародним аудитом та провідними підприємствами України, а також виконавчими службами Львова та Львівської області.
+          p.main_text Нашим новим напрямком в галузі незалежної оцінки нерухомого та рухомого майна є визначення оціночної (ринкової) вартості з метою оподаткування при вчиненні дій купівлі-продажу. Компанія працює на ринку оціночно-консалтингових послуг більше 10 років та надає якісні та професійні послуги фізичним та юридичним особам. У складі ТзОВ &lsaquo;&lsaquo;валкол&rsaquo;&rsaquo; працюють сертифіковані оцінювачі з великим досвідом практичної роботи, у т.ч. один доктор і один кандидат наук, спеціалісти з аналізу ринку нерухомості та розробки теоретичних та практичних положень оціночної діяльності.
+        .certificates_slider
+          .slider4
+            - @certificates.each do |certificate|
+              .slide title=certificate.name
+                a.fancybox href=certificate.image.url(:large) rel="gallery"
+                  .bg-image style="background-image: url(#{certificate.image.url(:small)})"
+                    .overlay
+
     .row
       .medium-12.columns.underlined
-      			h3.header_right id="experience" наш досвід
+        h3.header_right id="experience" наш досвід
     .row
-  		.medium-12.columns
-  			.row
-  				.medium-9.columns.end.right
-						h4.section_header наш досвід у роботі з оцінкою нерухомості
-						p.main_text Наш досвід в оцінці бізнесу компаній і цілісних майнових комплексів був узагальнений в наступних публікаціях:
-						ul.dashed
-							li &lsaquo;&lsaquo;Роль и место бизнеса в управлении стоимостью компании&rsaquo;&rsaquo; в Збірнику XII Міжнародна науково-практична конференція &lsaquo;&lsaquo;Оцінка майна для цілей фінансування&rsaquo;&rsaquo;, 25.09-27.09.2008р.
-							li Наш досвід в оцінці бізнесу компаній і цілісних майнових комплексів був узагальнений в наступних публікаціях:
-							li &lsaquo;&lsaquo;Роль и место бизнеса в управлении стоимостью компании&rsaquo;&rsaquo; в Збірнику XII Міжнародна науково-практична конференція &lsaquo;&lsaquo;Оцінка майна для цілей фінансування&rsaquo;&rsaquo;, 25.09-27.09.2008р.
-							li &lsaquo;&lsaquo;Оцінка вартості компанії в умовах економічної невизначеності;&rsaquo;&rsaquo; в журналі &lsaquo;&lsaquo;Янус-Нерухомість&rsaquo;&rsaquo;, №14, №15, липень 2009р.
-						p.main_text Результати досліджень ринку нерухомості в умовах фінансово-економічної кризи узагальнені в книзі &lsaquo;&lsaquo;Тенденції ринку нерухомості України. Реалії та прогнози&rsaquo;&rsaquo;, Київ 2009р., 300с., а також в статтях &lsaquo;&lsaquo;Ринок нерухомості в умовах фінансово-економічної кризи&rsaquo;&rsaquo; (журнал &lsaquo;&lsaquo;Янус-Нерухомість&rsaquo;&rsaquo;, №11, №12, 2009р.) і матеріалах XIV Міжнародної конференції на тему &lsaquo;&lsaquo;Оценка активов в условиях нестабильного ринка&rsaquo;&rsaquo;, 24.09-27.09.2008р., Ялта (АР Крим).
-		.row
-  		.medium-12.columns.underlined
-      			h3.header_right id="team" команда
+      .medium-12.columns
+        .row
+          .medium-9.columns.end.right
+            == html_block_with_fallback(:experience, true)
+              h4.section_header наш досвід у роботі з оцінкою нерухомості
+              p.main_text Наш досвід в оцінці бізнесу компаній і цілісних майнових комплексів був узагальнений в наступних публікаціях:
+              ul.dashed
+                li &lsaquo;&lsaquo;Роль и место бизнеса в управлении стоимостью компании&rsaquo;&rsaquo; в Збірнику XII Міжнародна науково-практична конференція &lsaquo;&lsaquo;Оцінка майна для цілей фінансування&rsaquo;&rsaquo;, 25.09-27.09.2008р.
+                li Наш досвід в оцінці бізнесу компаній і цілісних майнових комплексів був узагальнений в наступних публікаціях:
+                li &lsaquo;&lsaquo;Роль и место бизнеса в управлении стоимостью компании&rsaquo;&rsaquo; в Збірнику XII Міжнародна науково-практична конференція &lsaquo;&lsaquo;Оцінка майна для цілей фінансування&rsaquo;&rsaquo;, 25.09-27.09.2008р.
+                li &lsaquo;&lsaquo;Оцінка вартості компанії в умовах економічної невизначеності;&rsaquo;&rsaquo; в журналі &lsaquo;&lsaquo;Янус-Нерухомість&rsaquo;&rsaquo;, №14, №15, липень 2009р.
+              p.main_text Результати досліджень ринку нерухомості в умовах фінансово-економічної кризи узагальнені в книзі &lsaquo;&lsaquo;Тенденції ринку нерухомості України. Реалії та прогнози&rsaquo;&rsaquo;, Київ 2009р., 300с., а також в статтях &lsaquo;&lsaquo;Ринок нерухомості в умовах фінансово-економічної кризи&rsaquo;&rsaquo; (журнал &lsaquo;&lsaquo;Янус-Нерухомість&rsaquo;&rsaquo;, №11, №12, 2009р.) і матеріалах XIV Міжнародної конференції на тему &lsaquo;&lsaquo;Оценка активов в условиях нестабильного ринка&rsaquo;&rsaquo;, 24.09-27.09.2008р., Ялта (АР Крим).
+      .row
+      .medium-12.columns.underlined
+        h3.header_right id="team" команда
     .row
-  		.medium-12.columns
-  			.row
-  				.medium-9.columns.end.right
-						h4.section_header персонал компанії (оцінювачі)
-						p.main_text Нами виконано понад п'ять тисяч різного виду оціночних робіт, в тому числі оцінок цілісних майнових комплексів; цінних паперів; нематеріальних активів; майнових прав; оцінка бізнесу, розробку та оцінку інвестиційних проектів, а також аналітичні дослідження ринку нерухомості. У своїй роботі ми використовуємо сучасні програмні продукти, у тому числі розроблені нашими спеціалістами, такSі як &lsaquo;&lsaquo;Експрес-оцінка&rsaquo;&rsaquo;, &lsaquo;&lsaquo;Автоматизоване місце оцінювача&rsaquo;&rsaquo; та інші. Це допомагає нам гарантувати високу якість робіт, що виконуються в обумовлені із замовниками стислі терміни.
-						p.main_text Співробітниками компанії надруковано 30 науково-практичних робіт з оціночної діяльності та аналітики ринку, у т.ч. 4 монографії, присвячених теоретичним і практичним проблемам оціночної діяльності в Україні.
-						.row.personal.tabs data-tab=""
-							.medium-4.columns.tab-title
-								a	href="#menu1"
-									.photo style="background-image: url(#{asset_path('more/0.7C_2.jpg')})"
-									p.names воронін валерій олександрович
-									p.place Генеральний директор компанії
-							.medium-4.columns.tab-title.active
-								a	href="#menu2"
-									.photo style="background-image: url(#{asset_path('more/29052008008.jpg')})"
-									p.names савчук євген семенович
-									p.place Виконавчий директор
-							.medium-4.columns.tab-title
-								a	href="#menu3"
-									.photo style="background-image: url(#{asset_path('more/image02.jpg')})"
-									p.names морозов віктор олексійович
-									p.place Керівник відділу
-						.tabs-content
-							.content id="menu1"
-								p Voronin Valeriy Oleksandrovych
-							.content.active id="menu2"
-								p Завідуючий комерційним відділенням Технічого коледжу Національного університету &lsaquo;&lsaquo;Львівська політехніка&rsaquo;&rsaquo;. Закінчив механіко-математичний факультет Львівського універститу ім. І. Франку, математик-обчислювач. Математик-програміст, автор 25 публікацій в галузі інформаційних технологій та 4 публікації в галузі оцінки. Область науоквих інтересів: математичне моделювання.
-							.content id="menu3"
-								p Morozov Victor Oleksiyovych
-						.row.personal
-							.medium-4.columns
-								.photo style="background-image: url(#{asset_path('more/BCM.jpg')})"
-								p.names вороненко сергій михайлович
-								p.place Експерт-оцінювач
-							.medium-4.columns.end
-								.photo style="background-image: url(#{asset_path('more/LMO.JPG')})"
-								p.names литвин марина олександрівна
-								p.place Експерт-оцінювач
-
-
+      .medium-12.columns
+        .row
+          .medium-9.columns.end.right
+            == html_block_with_fallback(:team, true)
+              h4.section_header персонал компанії (оцінювачі)
+              p.main_text Нами виконано понад п'ять тисяч різного виду оціночних робіт, в тому числі оцінок цілісних майнових комплексів; цінних паперів; нематеріальних активів; майнових прав; оцінка бізнесу, розробку та оцінку інвестиційних проектів, а також аналітичні дослідження ринку нерухомості. У своїй роботі ми використовуємо сучасні програмні продукти, у тому числі розроблені нашими спеціалістами, такSі як &lsaquo;&lsaquo;Експрес-оцінка&rsaquo;&rsaquo;, &lsaquo;&lsaquo;Автоматизоване місце оцінювача&rsaquo;&rsaquo; та інші. Це допомагає нам гарантувати високу якість робіт, що виконуються в обумовлені із замовниками стислі терміни.
+              p.main_text Співробітниками компанії надруковано 30 науково-практичних робіт з оціночної діяльності та аналітики ринку, у т.ч. 4 монографії, присвячених теоретичним і практичним проблемам оціночної діяльності в Україні.
+            .row.personal.tabs data-tab=""
+              - @members.each do |member|
+                .medium-4.columns.left.tab-title
+                  a href="#menu3"
+                    .photo style="background-image: url(#{member.image.url(:show)})"
+                    p.names
+                      = member.name
+                    p.place
+                      = member.position
+                  - if member.description.present?
+                    .content style="display: none"
+                      = member.description
 

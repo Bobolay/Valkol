@@ -1,0 +1,44 @@
+.publications1_banner
+  =render "menu"
+=render "breadcrumbs"
+.row.bcg_color
+  .medium-12.columns
+    .row.inserts_buttons.padding_side.padding_top
+      .medium-12.columns
+        ul.tabs data-tab="" role="tablist"
+          li.tab-title role="presentation"
+            a aria-controls="panel2-1" aria-selected="true" href="#panel2-1" role="tab" tabindex="0"
+              | наші публікації
+          li.tab-title.active role="presentation"
+            a aria-controls="panel2-2" aria-selected="false" href="#panel2-2" role="tab" tabindex="0"
+              | цікаво знати
+            .button_arrow
+              a href=publications_path >
+    .row.inserts.padding
+      .medium-12.columns
+        .tabs-content
+          section#panel2-1.content aria-hidden="false" role="tabpanel"
+            .row
+              .medium-4.columns.insert_content
+                | 1
+              .medium-4.columns.insert_content
+                | 2
+              .medium-4.columns.insert_content
+                | 3
+          section#panel2-2.content.active aria-hidden="true" role="tabpanel"
+            .row
+              .medium-4.columns.insert_content
+                a href="#"
+                  .photo style="background-image: url(#{asset_path('publications/111.jpg')})"
+                a href="#"
+                  p Оцінка нерухомості порівняльним та доходним підходами на основі методології параметричного аналізу і моделювання ринку
+                .row
+                  .small-6.columns
+                    img.insert_icons alt="date" height="50" src=asset_path("date.png") width="50"
+                    span 12/01/2015
+                  .small-6.columns
+                    img.insert_icons alt="comments" src=asset_path("massage.png")
+                    span 124 коментаря
+                img.insert_icons alt="tag" src=asset_path("tag.png")
+                a href="#"
+                  span Оцінка інтелектуальної вартості

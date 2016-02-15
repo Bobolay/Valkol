@@ -41,3 +41,49 @@ gem 'slim-rails'
 gem 'bower-rails'
 
 # test
+
+gem "protected_attributes"
+gem 'russian'
+#gem 'ukrainian'
+
+gem 'rails-i18n'
+gem 'rails_admin-i18n', github: "starchow/rails_admin-i18n"
+
+gem 'paperclip'
+gem 'devise'
+gem 'acts-as-taggable-on'
+
+# rails_admin
+gem 'rails_admin'
+gem 'rails_admin_nestable'
+gem 'ckeditor'
+
+local = ENV["LOCAL"]
+
+
+gem 'enumerize'
+
+if local
+  gem 'cms', path: "/media/data/pasha/gems/cms"
+else
+  gem 'cms', github: "pkorenev/cms"
+end
+
+gem "htmlcompressor"
+gem 'rack-page_caching'
+gem 'paperclip-optimizer'
+gem 'image_optim'
+gem 'image_optim_pack'
+gem 'asset-image-opt'
+gem 'sprockets-image_compressor'
+
+
+
+
+gem 'quiet_assets'
+gem 'pry-rails'
+
+gem 'attachable', github: "VoroninNick/attachable"
+
+
+

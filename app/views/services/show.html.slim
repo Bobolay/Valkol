@@ -1,0 +1,23 @@
+.services_banner
+	=render "menu"
+=render "breadcrumbs"
+.row.bcg_color
+  .medium-12.columns
+    .row
+      .medium-8.columns.main_info
+        h4.section_header
+          = @service.name
+        == slim(@service.content, self)
+      .medium-4.columns
+        .field
+          h5.field_header.padding читайте також
+          - @service_categories.each do |category|
+            p.bigger.padding_side
+              = category.name
+
+            ul.no-bullet.padding_side
+              - category.services.published.sort_by_sorting_position.each do |s|
+                li
+                  a href=s.url
+                    = s.name
+

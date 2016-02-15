@@ -51,14 +51,12 @@
 			.medium-12.columns.underlined
 				h3.header_right форма зворотнього зв'язку
 		.row.padding
-			.medium-6.columns
-				form
-					input type="text" placeholder="Ім'я"
-				form
-					input type="text" placeholder="Телефон"
-				form
-					input type="text" placeholder="Електронна скринька"
-			.medium-6.columns
-				form
-					textarea rows="8" placeholder="Ваше повідомлення"
-					button.right надіслати
+            form action=message_path method="post"
+                .medium-6.columns
+                    input type="text" placeholder="Ім'я"
+                    input type="text" placeholder="Телефон"
+                      input type="text" placeholder="Електронна скринька"
+                .medium-6.columns
+
+                    textarea rows="8" placeholder="Ваше повідомлення"
+                    button.right надіслати

@@ -1,0 +1,3 @@
+class InterestingArticle < Article
+
+end
