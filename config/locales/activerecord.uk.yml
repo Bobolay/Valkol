@@ -9,6 +9,9 @@ uk:
       pages/publications: "Публікації"
       pages/services: "Послуги"
 
+      form_configs/message: "Повідомлення"
+      message: "Повідомлення"
+
       interesting_article:
         one: "Цікава стаття"
         other: "Цікаві статті"

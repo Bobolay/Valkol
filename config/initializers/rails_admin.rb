@@ -61,7 +61,7 @@ end
 
 def settings_navigation_label
   navigation_label do
-    "Settings"
+    "Налаштування"
   end
 end
 
@@ -150,14 +150,21 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
+  page_model_names = []
+  only_configurable_models = [FormConfigs::Message, FormConfigs::VacancyRequest, *page_model_names]
+  read_only_models = [Message, VacancyRequest]
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
+    new do
+      except(only_configurable_models + read_only_models )
+    end
     export
     bulk_delete
     show
-    edit
+    edit do
+      except read_only_models
+    end
     delete
     show_in_app
 
@@ -172,7 +179,7 @@ RailsAdmin.config do |config|
 
   include_models(config, Cms::MetaTags)
   include_pages_models(config)
-  include_models(config, Publication, InterestingArticle, Service, ServiceCategory, Member, Certificate, ApplicationForm)
+  include_models(config, Publication, InterestingArticle, Service, ServiceCategory, Member, Certificate, ApplicationForm, FormConfigs::Message, Message)
 
   config.model Cms::MetaTags do
     visible false
@@ -283,5 +290,22 @@ RailsAdmin.config do |config|
     field :file
   end
 
+
+  [FormConfigs::Message].each do |m|
+    config.model m do
+      settings_navigation_label
+      show do
+        field :email_receivers, :text
+      end
+
+      edit do
+        field :email_receivers do
+          help do
+            "Please type each email in new line"
+          end
+        end
+      end
+    end
+  end
 
 end
