@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   root to: "pages#index"
 
   scope :services, controller: :services do
@@ -7,14 +8,14 @@ Rails.application.routes.draw do
     get ":id", action: :show, as: :service
   end
 
-  scope :publications, controller: :articles do
+  scope :publications, controller: :publications do
     root action: :index, as: :publications
     get ":id", action: :show, as: :publication
   end
 
-  scope :intresting_articles, controller: :articles do
-    root action: :index, as: :intresting_articles
-    get ":id", action: :show, as: :intresting_article
+  scope :interesting_articles, controller: :interesting_articles do
+    root action: :index, as: :interesting_articles
+    get ":id", action: :show, as: :interesting_article
   end
 
 
@@ -31,6 +32,8 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
+
+  match "*url", to: "application#render_not_found", via: [:get, :post, :path, :put, :update, :delete]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

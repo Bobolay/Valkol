@@ -1,3 +1,3 @@
-class Pages::InterestingArticles < Cms::Page
+class Pages::InterestingArticles < Page
 
 end

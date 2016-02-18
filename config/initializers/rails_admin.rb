@@ -49,6 +49,10 @@ def content_field(name = :content)
   end
 end
 
+def ckeditor_field name = :content, &block
+  field name, :ck_editor, &block
+end
+
 def pages_navigation_label
   navigation_label do
     I18n.t("admin.navigation_labels.pages")
@@ -120,6 +124,10 @@ def html_block_fields
   end
 end
 
+def attachment_field(name)
+  field name, :paperclip
+end
+
 
 RailsAdmin.config do |config|
 
@@ -158,13 +166,13 @@ RailsAdmin.config do |config|
     # history_show
 
     nestable do
-      only [Service, ServiceCategory, Member, Certificate]
+      only [Service, ServiceCategory, Member, Certificate, ApplicationForm]
     end
   end
 
   include_models(config, Cms::MetaTags)
   include_pages_models(config)
-  include_models(config, Publication, InterestingArticle, Service, ServiceCategory, Member, Certificate)
+  include_models(config, Publication, InterestingArticle, Service, ServiceCategory, Member, Certificate, ApplicationForm)
 
   config.model Cms::MetaTags do
     visible false
@@ -179,6 +187,7 @@ RailsAdmin.config do |config|
   end
 
   config.model Pages::AboutUs do
+    attachment_field(:page_banner)
     content_field(:history)
     content_field(:experience)
     content_field(:team)
@@ -187,22 +196,31 @@ RailsAdmin.config do |config|
   end
 
   config.model Pages::Pricing do
+    attachment_field(:page_banner)
+    content_field(:intro)
+    content_field(:table)
+    content_field(:second_text)
     field :seo_tags
+
   end
 
   config.model Pages::Contacts do
+    content_field(:contact_data)
     field :seo_tags
   end
 
   config.model Pages::Services do
+    attachment_field(:page_banner)
     field :seo_tags
   end
 
   config.model Pages::Publications do
+    attachment_field(:page_banner)
     field :seo_tags
   end
 
   config.model Pages::InterestingArticles do
+    attachment_field(:page_banner)
     field :seo_tags
   end
 
@@ -212,8 +230,9 @@ RailsAdmin.config do |config|
       field :featured
       field :name
       field :url_fragment
-      content_field
+      ckeditor_field
       field :avatar
+      attachment_field(:page_banner)
     end
   end
 
@@ -224,7 +243,8 @@ RailsAdmin.config do |config|
     field :name
     field :url_fragment
     field :service_category
-    content_field
+    ckeditor_field
+    attachment_field(:page_banner)
   end
 
   config.model ServiceCategory do
@@ -254,4 +274,14 @@ RailsAdmin.config do |config|
     field :name
     field :image
   end
+
+  config.model ApplicationForm do
+    nestable_list(position_field: :sorting_position)
+
+    field :published
+    field :name
+    field :file
+  end
+
+
 end

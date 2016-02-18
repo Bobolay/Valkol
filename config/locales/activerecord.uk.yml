@@ -27,3 +27,6 @@ uk:
       certificate:
         one: "Сертифікат"
         other: "Сертифікати"
+      application_form:
+        one: "Анкета"
+        other: "Анкети"

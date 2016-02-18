@@ -1,4 +1,13 @@
-
-window.images = {
-	google: "<%= asset_path "geo.png" %>"
+<%
+ def quoted_asset_path(filename)
+    '"' + asset_path(filename) + '"'
+ end
+ %>
+if(!window.images) {
+    window.images = {}
 }
+
+
+
+images.google = <%= quoted_asset_path("geo.png") %>,
+images['form_preloader'] = <%= quoted_asset_path("loader_1.gif") %>

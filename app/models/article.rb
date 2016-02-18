@@ -8,6 +8,8 @@ class Article < ActiveRecord::Base
     allow_delete_attachment attachment_name
   end
 
+  has_image :page_banner
+
   has_cache
   def cache_instances
     public_fields = [:tags, :name, :url_fragment, :avatar, :released_at, :featured]

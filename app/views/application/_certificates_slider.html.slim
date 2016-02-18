@@ -1,0 +1,7 @@
+.certificates_slider
+  .slider4
+    - @certificates.each do |certificate|
+      .slide title=certificate.name
+        a.fancybox href=certificate.image.url(:large) rel="gallery"
+          .bg-image style="background-image: url(#{certificate.image.url(:small)})"
+            .overlay

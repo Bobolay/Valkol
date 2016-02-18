@@ -1,5 +1,6 @@
 class Service < ActiveRecord::Base
   attr_accessible *attribute_names
+  has_image :page_banner
 
   acts_as_article(initialize_all_attachments: false, author: false)
 

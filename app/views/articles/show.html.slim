@@ -1,6 +1,5 @@
-.publications3_banner
-  =render "menu"
-=render "breadcrumbs"
+= render "page_banner"
+= render "breadcrumbs"
 .row.bcg_color
   .small-12.columns
     .row.padding_side
@@ -21,5 +20,6 @@
           a href="#"
             span Оцінка нерухомості
       .medium-8.columns.publication.padding_side
-  .columns.small-12
-    = render "disqus_comments"
+        == (@article.content)
+      .columns.small-12
+        = render "disqus_comments"

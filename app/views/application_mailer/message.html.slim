@@ -1,0 +1,28 @@
+table border="1"
+  tr
+    td
+      |Name
+    td
+      = @msg.name
+
+  tr
+    td
+      |Phone
+    td
+      = @msg.phone
+
+  tr
+    td
+      |Email
+    td
+      = @msg.email
+
+  tr
+    td
+      |Description
+    td
+      = @msg.message_text
+
+p
+  a href="http://#{Rails.application.config.action_mailer.default_url_options[:host]}/admin/#{@msg.class.name.underscore}/#{@msg.id}"
+    | In admin panel

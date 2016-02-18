@@ -1,0 +1,4 @@
+section#panel2-2.content.active aria-hidden="true" role="tabpanel"
+  .row
+    - @articles.each do |article|
+      = render "article_item", article: article

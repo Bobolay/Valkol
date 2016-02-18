@@ -1,13 +1,12 @@
-.services_banner
-	=render "menu"
-=render "breadcrumbs"
+= render "page_banner"
+= render "breadcrumbs"
 .row.bcg_color
   .medium-12.columns
     .row
       .medium-8.columns.main_info
         h4.section_header
           = @service.name
-        == slim(@service.content, self)
+        == @service.content
       .medium-4.columns
         .field
           h5.field_header.padding читайте також

@@ -5,3 +5,14 @@ uk:
     pricing: "Ціни"
     publications: "Публікації"
     contacts: "Контакти"
+  breadcrumbs:
+    about_us: "Про нас"
+    services: "Послуги"
+    pricing: "Ціни"
+    publications: "Публікації"
+    interesting_articles: "Цікаві статті"
+    contacts: "Контакти"
+  articles:
+    tabs:
+      publications: "Наші публікації"
+      interesting_articles: "Цікаво знати"

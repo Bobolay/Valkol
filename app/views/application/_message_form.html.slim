@@ -1,0 +1,22 @@
+form.ajax-submit action=message_path method="post" show-preloader=""
+  .content
+    .medium-6.columns
+      .input.string required="" required-message="Введіть ім’я"
+        input name="message[name]" type="text" placeholder="Ім'я"
+      .input.string required-message="Введіть телефон"
+        input name="message[phone]" type="text" placeholder="Телефон"
+      .input.string required="" required-message="Введіть електронну скриньку"
+        input name="message[email]" type="text" placeholder="Електронна скринька"
+    .medium-6.columns
+      .input.text required="" required-message="Введіть текст повідомлення"
+        textarea name="message[message_text]" rows="8" placeholder="Ваше повідомлення"
+      button.right надіслати
+
+    .clearfix
+
+  .success-message
+    .title
+      span.with_white_arrows
+        |Ви успішно відправили повідомлення
+    p
+      |Наш менеджер зв’яжеться з Вами найближчим часом

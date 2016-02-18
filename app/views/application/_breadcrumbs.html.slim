@@ -1,8 +1,19 @@
 .row
-	.medium-12.columns.for_breadcrumbs
-		ul.breadcrumbs
-			li
-				a.current href="#"
-					img alt="home" src=asset_path("home_icon.png")
-			li
-				a href="#"	Про нас
+  .medium-12.columns.for_breadcrumbs
+
+    ul.breadcrumbs
+      - @_breadcrumbs.each_with_index do |b, i|
+        - if b[:key] == 'home'
+          li
+            a.current href=b[:url]
+              img alt="home" src=asset_path("home_icon.png")
+        - else
+          - last = i == @_breadcrumbs.length - 1
+          li
+            - if b[:url].present? && !last
+              a href=b[:url]
+                = b[:name]
+            - else
+              span
+                = b[:name]
+
