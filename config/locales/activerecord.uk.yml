@@ -33,3 +33,10 @@ uk:
       application_form:
         one: "Анкета"
         other: "Анкети"
+
+    attributes:
+      message:
+        name: "Ім’я"
+        phone: "Телефон"
+        email: "Електронна скринька"
+        message_text: "Текст повідомлення"
