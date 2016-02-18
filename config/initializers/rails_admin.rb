@@ -151,8 +151,8 @@ RailsAdmin.config do |config|
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
   page_model_names = []
-  only_configurable_models = [FormConfigs::Message, FormConfigs::VacancyRequest, *page_model_names]
-  read_only_models = [Message, VacancyRequest]
+  only_configurable_models = [FormConfigs::Message, *page_model_names]
+  read_only_models = [Message]
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
