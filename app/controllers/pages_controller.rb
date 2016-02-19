@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 	def index
 		set_page_metadata("home")
 		@certificates = Certificate.published.sort_by_sorting_position
-		@publications = Publication.published
+		@publications = Publication.published.featured
 		@interesting_articles = InterestingArticle.published
 
 

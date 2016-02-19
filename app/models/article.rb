@@ -1,6 +1,8 @@
 class Article < ActiveRecord::Base
   acts_as_article(tags: true, initialize_all_attachments: false, author: false)
 
+  scope :featured, -> { where(featured: 't').limit(3) }
+
   [:avatar].each do |attachment_name|
     has_attached_file attachment_name, styles: { show: "575x170#" }
     do_not_validate_attachment_file_type attachment_name
