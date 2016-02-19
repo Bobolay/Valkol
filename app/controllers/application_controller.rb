@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   include Cms::Helpers::ImageHelper
 
   before_action :initialize_breadcrumbs
+  before_action :initialize_service_categories
 
   def render_not_found
     @head_title = "Сторінку не знайдено"
@@ -53,4 +54,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :render_breadcrumbs
   helper_method :render_page_banner
+
+  def initialize_service_categories
+    @service_categories ||= ServiceCategory.published.sort_by_sorting_position
+  end
 end

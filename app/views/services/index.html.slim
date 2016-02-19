@@ -4,7 +4,7 @@
 .row.bcg_color
 	.medium-12.columns.service_list
         - @service_categories.each_with_index do |category, category_index|
-          .row.lined
+          .row.lined id=category.url_fragment
             .medium-1.columns
               .marker.main_marker
                 = category_index + 1

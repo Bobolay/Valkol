@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   def index
-    @service_categories = ServiceCategory.published.sort_by_sorting_position
+
 
     set_page_metadata('services')
     set_page_banner_image(@page_instance.try(:page_banner))
@@ -13,7 +13,7 @@ class ServicesController < ApplicationController
       return render_not_found
     end
 
-    @service_categories = ServiceCategory.published.sort_by_sorting_position
+
 
     set_page_metadata(@service)
     set_page_banner_image(@page_instance.try(:page_banner))

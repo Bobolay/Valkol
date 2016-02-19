@@ -13,46 +13,18 @@
           li.has-dropdown
             a href=services_path послуги
             ul.dropdown
-              li.has-dropdown
-                a href=services_path Оцінка рухомого і нерухомого майна та майнових прав
-                ul.dropdown
-                  li
-                    a href="#" Оцінка обєктів нерухомого майна у тому числі земельних ділянок
-                  li
-                    a href="#" Експертна грошова оцінка земельних ділянок
-                  li
-                    a href="#" Оцінка установок, машин та обладнання
-                  li
-                    a href="#" Оцінка колісних транспортних засобів
-                  li
-                    a href="#" Оцінка нематеріальних активів
-                  li
-                    a href="#" Переоцінка основних засобів, для фінансової звітності
-                  li
-                    a href="#" Переоцінка основних фондів
-              li.has-dropdown
-                a href="#"  Оцінка бізнесу
-                ul.dropdown
-                  li
-                    a href="#" Оцінка мажоритарного пакету акцій
-                  li
-                    a href="#" Оцінка міноритарного пакету акцій
-                  li
-                    a href="#" Оцінка цілостного майнового комплексу
-                  li
-                    a href="#" Оцінка підприємства як діючого (on-going concern)
-                  li
-                    a href="#" Оцінка ліквідаційної вартості підприємства в разі припинення здійснення бізнесу
-                  li
-              li.has-dropdown
-                a href="#"  Аналітичні дослідження ринку нерухомості
-                ul.dropdown
-                  li
-                    a href="#" Результати регулярного моніторингу ринку
-                  li
-                    a href="#" Результати дослідження тенденцій розвитку ринку
-                  li
-                    a href="#" Результати коротко- і середньо строкового прогнозування розвитку ринку
+              - @service_categories.each do |category|
+                li.has-dropdown
+                  a href=category.url
+                    = category.name
+                  ul.dropdown
+                    - category.services.published.sort_by_sorting_position.each do |s|
+                      li
+                        a href=s.url
+                          = s.name
+
+
+
           li
             a href=pricing_path  ціни
           li

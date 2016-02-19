@@ -240,6 +240,8 @@ RailsAdmin.config do |config|
       ckeditor_field
       field :avatar
       attachment_field(:page_banner)
+      field :tag_list, :string
+      field :seo_tags
     end
   end
 
@@ -252,6 +254,7 @@ RailsAdmin.config do |config|
     field :service_category
     ckeditor_field
     attachment_field(:page_banner)
+    field :seo_tags
   end
 
   config.model ServiceCategory do
@@ -305,6 +308,15 @@ RailsAdmin.config do |config|
           end
         end
       end
+    end
+  end
+
+  config.model Message do
+    show do
+      field :name
+      field :phone
+      field :email
+      field :message_text
     end
   end
 
