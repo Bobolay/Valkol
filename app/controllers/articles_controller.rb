@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.published.where(url_fragment: params[:id]).first
+    @article = resource_class.published.where(url_fragment: params[:id]).first
     if @article.nil?
       return render_not_found
     end
