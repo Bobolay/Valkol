@@ -4,6 +4,9 @@ class ServicesController < ApplicationController
 
     set_page_metadata('services')
     set_page_banner_image(@page_instance.try(:page_banner))
+
+    add_home_breadcrumb
+    add_breadcrumb('services')
   end
 
   def show
@@ -13,9 +16,11 @@ class ServicesController < ApplicationController
       return render_not_found
     end
 
-
-
     set_page_metadata(@service)
     set_page_banner_image(@page_instance.try(:page_banner))
+
+    add_home_breadcrumb
+    add_breadcrumb('services')
+    add_breadcrumb(@service.name)
   end
 end

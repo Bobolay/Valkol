@@ -8,8 +8,6 @@ class ArticlesController < ApplicationController
     add_home_breadcrumb
     add_breadcrumb(resource_plural_name)
 
-
-
     if pjax?
       render template: "application/_articles_collection", layout: false
     end
