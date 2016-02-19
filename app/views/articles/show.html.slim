@@ -6,19 +6,25 @@
       .medium-4.columns.inserts.padding
         .medium-12.columns.insert_content.padding_top
           a href="#"
-            .photo style="background-image: url(#{asset_path('publications/222.jpg')})"
+            .photo style="background-image: url(#{@article.avatar.url(:show)})"
           a href="#"
-            p Тенденції ринку нерухомості УКраїни
+            p
+              = @article.name
           .row
             .small-6.columns
-              img.insert_icons alt="date" height="50" src=asset_path("date.png") width="50"
-              span 12/01/2015
-            .small-6.columns
+              - if @article.released_at.present?
+                img.insert_icons alt="date" height="50" src=asset_path("date.png") width="50"
+                span
+                  = l(@article.released_at, format: "%d/%m/%Y")
+            /.small-6.columns
               img.insert_icons alt="comments" src=asset_path("massage.png")
               span 5 коментарів
-          img.insert_icons alt="tag" src=asset_path("tag.png")
-          a href="#"
-            span Оцінка нерухомості
+          - if @article.tags.try(:any?)
+            img.insert_icons alt="tag" src=asset_path("tag.png")
+            - @article.tags.each do |tag|
+              a href="#"
+                span
+                  = tag
       .medium-8.columns.publication.padding_side
         == (@article.content)
       .columns.small-12

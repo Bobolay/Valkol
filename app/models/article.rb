@@ -26,5 +26,9 @@ class Article < ActiveRecord::Base
     "124 коментаря"
   end
 
+  before_save :initialize_released_at
 
+  def initialize_released_at
+    self.released_at ||= DateTime.now
+  end
 end

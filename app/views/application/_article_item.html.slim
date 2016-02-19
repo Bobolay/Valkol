@@ -6,8 +6,10 @@
       = article.name
   .row
     .small-6.columns
-      img.insert_icons alt="date" height="50" src=asset_path("date.png") width="50"
-      span 12/01/2015
+      - if article.released_at.present?
+        img.insert_icons alt="date" height="50" src=asset_path("date.png") width="50"
+        span
+          = l(article.released_at, format: "%d/%m/%Y")
     /.small-6.columns
       img.insert_icons alt="comments" src=asset_path("massage.png")
       span
