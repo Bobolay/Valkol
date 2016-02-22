@@ -17,4 +17,8 @@ class HomeBanner < ActiveRecord::Base
   def cache_instances
     [Pages.home]
   end
+
+  def url
+    self['url']
+  end
 end
