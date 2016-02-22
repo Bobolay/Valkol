@@ -34,6 +34,7 @@ end
 
 def content_field(name = :content)
   field name, :text do
+    help "Якщо редактор не відображається, обновіть сторінку"
     html_attributes do
       {
           class: "my-codemirror",
@@ -227,6 +228,10 @@ RailsAdmin.config do |config|
   config.model Pages::InterestingArticles do
     attachment_field(:page_banner)
     field :seo_tags
+  end
+
+  config.model Pages::Partials do
+    content_field(:footer)
   end
 
   [Publication, InterestingArticle].each do |m|

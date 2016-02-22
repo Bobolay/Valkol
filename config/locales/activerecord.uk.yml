@@ -33,6 +33,9 @@ uk:
       application_form:
         one: "Анкета"
         other: "Анкети"
+      home_banner:
+        one: "Банер головної сторінки"
+        other: "Банери головної сторінки"
 
     attributes:
       message:
