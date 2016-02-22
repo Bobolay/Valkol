@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 		@certificates = Certificate.published.sort_by_sorting_position
 		@publications = Publication.published.featured
 		@interesting_articles = InterestingArticle.published
-
+		@home_banners = HomeBanner.published.sort_by_sorting_position
 
 	end
 

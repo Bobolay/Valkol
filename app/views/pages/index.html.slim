@@ -1,36 +1,27 @@
 
 .banner
   ul.bxslider
-    li
-      .bg-image style="background-image: url(#{asset_path('banner1.jpg')})"
-      .inner
-        .inner_container
-          .brackets
-            a.slider-prev href="#"
-            a.slider-next href="#"
-          .inner_text
-            h1 незалежна оцінка
-            p Компанія працює на ринку оціночно-консалтингових послуг більше 10 років та надає якісні та професійні послуги фізичним та юридичним особам
-    li
-      .bg-image style="background-image: url(#{asset_path('banner2.jpg')})"
-      .inner
-        .inner_container
-          .brackets
-            a.slider-prev href="#"
-            a.slider-next href="#"
-          .inner_text
-            h1 незалежна оцінка
-            p Компанія працює на ринку оціночно-консалтингових послуг більше 10 років та надає якісні та професійні послуги фізичним та юридичним особам
-    li
-      .bg-image style="background-image: url(#{asset_path('banner3.jpg')})"
-      .inner
-        .inner_container
-          .brackets
-            a.slider-prev href="#"
-            a.slider-next href="#"
-          .inner_text
-            h1 незалежна оцінка
-            p Компанія працює на ринку оціночно-консалтингових послуг більше 10 років та надає якісні та професійні послуги фізичним та юридичним особам
+    - @home_banners.each do |banner|
+      - banner_url = banner.url.present? ? banner.url : false
+      li
+        .bg-image style="background-image: url(#{banner.image.url(:large)})"
+        .inner
+          .inner_container
+            .brackets
+              a.slider-prev href="#"
+              a.slider-next href="#"
+            .inner_text
+              .h1
+                - if banner_url
+                  a href=banner_url
+                    = banner.name
+                - else
+                  = banner.name
+
+              - if banner.description.present?
+                p
+                  = banner.description
+
 .index_menu
   = render "menu"
 .section
@@ -48,37 +39,24 @@
       .row
         .medium-12.columns.underlined
           h3.header_right id="experience" наш досвід
+
       .row.section_2.padding_side
-        .medium-6.columns
-          h4.section_header оцінка рухомого і нерухомого майна та майнових прав:
-          ul.dashed
-            li Оцінка об'єктів нерухомого майна у тому числі земельних ділянок;
-            li Експертна грошова оцінка земельних ділянок;
-            li Визначення вартості об'єктів незавершених будівництвом;
-            li Оцінка установок, машин, обладнання та окремих видів транспортних засобів (внутрішньо заводських);
-            li Оцінка колісних транспортних засобів, літальних апаратів та судноплавних засобів;
-            li Оцінка нематеріальних активів в тому числі прав на об'єкти інтелектуальної вартості.
-        .medium-6.columns
-          h4.section_header оцінка бізнесу:
-          ul.dashed
-            li Оцінка мажоритарного (контрольного, блокуючого) пакету акцій;
-            li Оцінка міноритарного пакету акцій;
-            li Оцінка цілісного майнового комплексу;
-            li Оцінка підприємства як діючого (on-going-concern), в тому числі при реалізації інвестиційних (інноваційних) або алокаційних (структурних) проектів;
-            li Оцінка ліквідаційної вартості підприємства в разі припинення здійснення бізнесу.
-      .row.section_3.padding_side
-        .medium-12.columns
-          h4.section_header аналітичні дослідження ринку нерухомості
-          ul.dashed
-            li
-              |Результати регулярного моніторингу ринку.
-              span> Статистична обробка даних; аналіз і оцінка поточного стану індикаторів ринку житлової і комерційної нерухомості, аналіз і оцінка динаміки індикаторів ринку;
-            li
-              |Результати дослідження тенденій розвитку ринку.
-              span> Дослідження параметричних закономірностей зміни індикаторів ринку; дослідження динамічних закономірностей зміни індикаторів ринку, сумісне дослідження динаміки різних індикаторів ринку, в тому числі екзогенних по відношенню до ринку нерухомості, зокрема макроекономічних та фінансових показників розвитку економіки в цілому;
-            li
-              |Результати коротко- і середньо строкового прогнозування розвитку ринку.
-              span> Дослідження зовнішніх і внутрішніх чинників, що впливають на зміну індикаторів ринку, нейромережеві та екстраполяційні середньо строкові прогнозні моделі розвитку ринку.
+        - @service_categories.each_with_index do |category, index|
+          - columns = 6
+          - columns = 12 if index == @service_categories.count - 1 && index % 2 == 0
+
+          .columns class="medium-#{columns}"
+            h4.section_header
+              a href=category.url
+                = category.name
+            ul.dashed
+              - category.services.published.sort_by_sorting_position.each do |s|
+              li
+                a href=s.url
+                  = s.name
+
+
+
       .row.inserts_buttons.padding_side
         .medium-12.columns
           ul.tabs data-tab="" role="tablist"

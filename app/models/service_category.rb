@@ -6,14 +6,7 @@ class ServiceCategory < ActiveRecord::Base
 
   has_cache
   def cache_instances
-    public_fields = [:name, :url_fragment]
-    any_public_field_changed = public_fields.map{|f| method = "#{f}_changed?"; self.respond_to?(method) && send(method) }.select(&:present?).any?
-
-    if any_public_field_changed
-      Pages.all_instances
-    else
-      [self]
-    end
+    Pages.all_instances
   end
 
   before_validation :initialize_url_fragment

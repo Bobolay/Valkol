@@ -32,8 +32,6 @@ def include_models(config, *models)
   end
 end
 
-
-
 def content_field(name = :content)
   field name, :text do
     html_attributes do
@@ -173,13 +171,13 @@ RailsAdmin.config do |config|
     # history_show
 
     nestable do
-      only [Service, ServiceCategory, Member, Certificate, ApplicationForm]
+      only [Service, ServiceCategory, Member, Certificate, ApplicationForm, HomeBanner]
     end
   end
 
   include_models(config, Cms::MetaTags)
   include_pages_models(config)
-  include_models(config, Publication, InterestingArticle, Service, ServiceCategory, Member, Certificate, ApplicationForm, FormConfigs::Message, Message)
+  include_models(config, Publication, InterestingArticle, Service, ServiceCategory, Member, Certificate, ApplicationForm, FormConfigs::Message, Message, HomeBanner)
 
   config.model Cms::MetaTags do
     visible false
@@ -317,6 +315,18 @@ RailsAdmin.config do |config|
       field :phone
       field :email
       field :message_text
+    end
+  end
+
+  config.model HomeBanner do
+    nestable_list(position_field: :sorting_position)
+
+    edit do
+      field :published
+      field :name
+      field :image
+      field :description
+      field :url
     end
   end
 
