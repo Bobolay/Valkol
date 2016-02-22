@@ -4,4 +4,8 @@ class Pages::Partials < Page
   def self.disabled
     true
   end
+
+  def cache_instances
+    Pages.all_instances
+  end
 end
