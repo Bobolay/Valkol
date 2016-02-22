@@ -4,7 +4,11 @@
     - @home_banners.each do |banner|
       - banner_url = banner.url.present? ? banner.url : false
       li
-        .bg-image style="background-image: url(#{banner.image.url(:large)})"
+
+        - if banner_url
+          a.bg-image style="background-image: url(#{banner.image.url(:large)})" href=banner_url
+        - else
+          .bg-image style="background-image: url(#{banner.image.url(:large)})"
         .inner
           .inner_container
             .brackets
