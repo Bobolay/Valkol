@@ -11,11 +11,12 @@
               a.slider-prev href="#"
               a.slider-next href="#"
             .inner_text
-              .h1
-                - if banner_url
+              - if banner_url
+                .h1
                   a href=banner_url
                     = banner.name
-                - else
+              - else
+                .h1
                   = banner.name
 
               - if banner.description.present?
