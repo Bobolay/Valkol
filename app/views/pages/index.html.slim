@@ -27,7 +27,10 @@
                   = banner.description
 
 .index_menu
-  = render "menu"
+  .row
+    .medium-12.columns
+      .menu_container
+        = render "menu"
 .section
   .row.bcg_color
     .medium-12.columns
@@ -37,12 +40,12 @@
             img alt="logo" src=asset_path("Val_logo.png")
         .medium-8.columns
           .section_about_us
-            h4.section_header консалтингова компанія валкол
-            p Аналітично-консалтингове підприємство, діяльність якого пов'язана в тому числі з оцінкою майна та майнових прав, матеріальних та нематеріальних активів, заставного майна та земельних ділянок.
-            p Компанія працює на ринку оціночно-консалтингових послуг більше 10 років та надає якісні та професійні послуги фізичним та юридичним особам. у складі ТзОВ "ВАЛКОЛ" працюють сертифіковані оцінювачі з великим досвідом практичної роботи.
+            p.font24.section_header консалтингова компанія &lsaquo;&lsaquo;валкол&rsaquo;&rsaquo;
+            p.font14.dark_grey Аналітично-консалтингове підприємство, діяльність якого пов'язана в тому числі з оцінкою майна та майнових прав, матеріальних та нематеріальних активів, заставного майна та земельних ділянок.
+            p.font14.dark_grey Компанія працює на ринку оціночно-консалтингових послуг більше 10 років та надає якісні та професійні послуги фізичним та юридичним особам. у складі ТзОВ &lsaquo;&lsaquo;ВАЛКОЛ&rsaquo;&rsaquo; працюють сертифіковані оцінювачі з великим досвідом практичної роботи.
       .row
         .medium-12.columns.underlined
-          h3.header_right id="experience" наш досвід
+          .header_right id="experience" наш досвід
 
       .row.section_2.padding_side
         - @service_categories.each_with_index do |category, index|
@@ -50,7 +53,7 @@
           - columns = 12 if index == @service_categories.count - 1 && index % 2 == 0
 
           .columns class="medium-#{columns}"
-            h4.section_header
+            .section_header
               a href=category.url
                 = category.name
             ul.dashed
@@ -87,10 +90,10 @@
 
       .row
         .medium-12.columns.underlined
-          h3.header_right id="experience" сертифікати і свідоцтва
+          .header_right id="experience" сертифікати і свідоцтва
       = render "certificates_slider"
-      .row.padding.under_sertificates
+      .row.padding
         .large-6.column
-          p Сертифікат суб'єкта оціночної діяльності № 8314/09 від 19.02.2009р., виданого Фондом державного майна України. Ліцензії Державного Комітету України із земельних ресурсів АВ № 390699 від 03.07.2008р.
+          p.font14 Сертифікат суб'єкта оціночної діяльності № 8314/09 від 19.02.2009р., виданого Фондом державного майна України. Ліцензії Державного Комітету України із земельних ресурсів АВ № 390699 від 03.07.2008р.
         .large-6.column
-          p Свідоцтво про державну реєстрацію АОО № 379616, Ідентифікаційний код 13819807, р/р 26003001307518 у ЗАТ "ОТП Банк" в м. Київ.
+          p.font14 Свідоцтво про державну реєстрацію АОО № 379616, Ідентифікаційний код 13819807, р/р 26003001307518 у ЗАТ &lsaquo;&lsaquo;ОТП Банк&rsaquo;&rsaquo; в м. Київ.

@@ -8,8 +8,8 @@
     = html_block_with_fallback("contact_data", true, nil, self)
       .row
         .medium-12.columns.underlined
-          h3.header_right зв'язатись з нами
-      .row.contacts_field.padding
+          .header_right зв'язатись з нами
+      .row.padding
         .medium-6.columns
           table.table_contacts
             tr
@@ -45,11 +45,11 @@
                 img alt="location" src=asset_path("contacts/location.png")
               td
                 p
-                  |вул. Ш.Руставелі, 34а/21 М
+                  |вул. Ш. Руставелі, 34а/21
                   br
                   |м. Львів, 79005
     .row
       .medium-12.columns.underlined
-        h3.header_right форма зворотнього зв'язку
+        .header_right форма зворотнього зв'язку
     .row.padding
       = render "message_form"

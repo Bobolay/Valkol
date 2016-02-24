@@ -50,7 +50,7 @@ body
 		padding: 2px 0
 		height: 100%
 		position: relative
-		right: -5px
+		//right: -5px дає скрол
 		.bx-viewport
 			border: none
 			height: 100%		
@@ -109,7 +109,10 @@ body
 			line-height: 1.2
 .index_menu
 	position: relative
-	top: -50px
+	.menu_container
+		position: absolute
+		top: -50px
+		width: 97%
 .menu
 	position: relative
 	z-index: 10
@@ -117,8 +120,7 @@ body
 		min-height: 70px
 		.top-bar-section
 			ul
-				li 
-					background: linear-gradient(#3C7589, #123B41)
+				li
 					@media only screen and (min-width: 40.0625em)
 						width: 20%
 					a
@@ -126,8 +128,11 @@ body
 						text-transform: uppercase
 						text-align: center
 						width: 100%
+						background: linear-gradient(#3C7589, #123B41)
 						@media only screen and (max-width: 800px)
 							font-size: 0.8em
+						&:hover
+							background: $navy
 					.dropdown
 						li 
 							width: 100%
@@ -137,7 +142,7 @@ body
 								font-size: 0.875em
 								text-transform: none
 								color: $navy
-								height: 50px
+								line-height: 50px
 								text-align: left
 								background: white !important
 								color: $navy !important
@@ -148,7 +153,6 @@ body
 									color: white !important
 .section			
 	position: relative
-	top: -50px
 	.bcg_color
 		background-color: white
 	.section_logo
@@ -160,11 +164,6 @@ body
 		padding: 30px 0 0 0
 		@media only screen and (max-width: 40.0625em)
 			padding: 10px 0 0 0
-		p
-			color: grey
-			font-size: 0.875em
-	.section_header
-		font-weight: bold
 	ul
 		li 
 			line-height: 2.5
@@ -246,24 +245,16 @@ body
 			background-image: image-url("cerfiticate.jpg")
 			background-size: cover
 			background-repeat: no-repeat
-.under_sertificates	
-	p 
-		color: $dark_grey
-		font-size: 0.875em
 .footer
 	background-color: $light_grey
+	padding: 20px 10px
 	img
 		width: 60px
 		float: left
 		position: relative
 		top: -10px
 		padding-right: 10px
-	p 
-		font-size: 0.75em
-		color: grey
 	.footer_nav
-		.lined
-			border-bottom: 1px dotted $dark_grey
 		.inline-list
 			padding-top: 10px
 			width: 400px
@@ -277,10 +268,12 @@ body
 					border: none
 			a
 				text-transform: uppercase
-				font-weight: bold
-				color: $main
+				font-weight: 500
+				color: $navy
 				font-size: 1em
 				line-height: 1em
+				&:hover
+					color: $red_violet
 .breadcrumbs
 	overflow: visible
 	border: none
