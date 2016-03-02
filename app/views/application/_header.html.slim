@@ -2,16 +2,36 @@
   .row
     .medium-12.columns
       .row
-        .small-6.medium-6.columns
+        .small-4.medium-5.columns
           .logo
             a href=root_path
               img alt=("Logo header") src=asset_path("Val_logo_header.png")
-        .small-6.medium-6.columns
+        .small-8.medium-7.columns
           ul.no-bullet.inline-list.icons
             li
-              img alt="geo" src=asset_path("geo.png") 
+              a#popup-1 href="#"
+                img alt="phone" src=asset_path("geo.png")
+              .popup-1
+                p.font14
+                  | вул. Ш.Руставелі, 34а/21
+                  br
+                  | м. Львів, 72005
             li
-              img alt="phone" src=asset_path("phone.png")
+              a#popup-2 href="#"
+                img alt="phone" src=asset_path("phone.png")
+              .popup-2
+                p.font14
+                  | +38 (032) 225 62 08
+                  br
+                  | +38 (032) 225 62 06
+            li.header-form-container.exception
+              a href="#"
+                img alt="" src=asset_path("mail.png")
+              .popup-3
+                p.font16 last_ocinka@ukr.net
+                .inner-form
+                  p.font14.mail-us напишіть нам
+                  = render "message_form"
             li
-              img alt="" src=asset_path("mail.png") 
-            li
+              a#mobile-hamburger
+                .hamburger

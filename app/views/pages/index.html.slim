@@ -1,4 +1,8 @@
-
+.row
+  .large-12.medium-12.columns
+    .index_menu
+      .menu_container
+        = render "menu"
 .banner
   ul.bxslider
     - @home_banners.each do |banner|
@@ -15,7 +19,7 @@
               a.slider-prev href="#"
               a.slider-next href="#"
             .inner_text
-              .h1
+              .inner-header
                 - if banner_url
                   a href=banner_url
                     = banner.name
@@ -23,14 +27,8 @@
                   = banner.name
 
               - if banner.description.present?
-                p
+                .inner-p
                   = banner.description
-
-.index_menu
-  .row
-    .medium-12.columns
-      .menu_container
-        = render "menu"
 .section
   .row.bcg_color
     .medium-12.columns
@@ -53,7 +51,7 @@
           - columns = 12 if index == @service_categories.count - 1 && index % 2 == 0
 
           .columns class="medium-#{columns}"
-            .section_header
+            p.font24.section_header
               a href=category.url
                 = category.name
             ul.dashed
@@ -61,7 +59,6 @@
                 li
                   a href=s.url
                     = s.name
-
 
 
       .row.inserts_buttons.padding_side

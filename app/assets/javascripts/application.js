@@ -24,5 +24,8 @@
 //= require jquery-pjax/jquery.pjax
 //= require jquery-form/jquery.form
 //= require jquery.forms
+
+//= require jquery.one-click-outside.js
+
 //= require main.js
 //= require articles

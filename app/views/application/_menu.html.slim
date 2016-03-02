@@ -5,7 +5,7 @@
         li.name
         li.toggle-topbar.menu-icon
           a href="#"
-            span Меню
+            span
       section.top-bar-section
         ul
           li
@@ -21,10 +21,7 @@
                     - category.services.published.sort_by_sorting_position.each do |s|
                       li
                         a href=s.url
-                          = s.name
-
-
-
+                           = s.name
           li
             a href=pricing_path  ціни
           li

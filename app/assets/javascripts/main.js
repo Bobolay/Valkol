@@ -1,4 +1,4 @@
-// 1
+// slider
 $(document).ready(function(){
     $('.bxslider').bxSlider({
         nextSelector: '.slider-next',
@@ -12,23 +12,23 @@ $(document).ready(function(){
 });
 
 
-// 2
+// slider certificates
 $(document).ready(function(){
     $('.slider4').bxSlider({
-        slideWidth: 300,
-        minSlides: 4,
+        slideWidth: 150,
+        minSlides: 2,
         maxSlides: 4,
         moveSlides: 1,
         slideMargin: 10
     });
 });
 
-// 3
+// general for foundation
 $(document).ready(function() {
     $(document).foundation();
 });
 
-// 4
+// google mep
 function initialize() {
     var styles = [
         {
@@ -65,16 +65,47 @@ function initialize() {
 google.maps.event.addDomListener(window, 'resize', initialize);
 google.maps.event.addDomListener(window, 'load', initialize)
 
-// 5
+// fancybox
 $(document).ready(function() {
     $('.fancybox').fancybox();
 });
 
-// 6
-var $scale_button = $('#scale');
-$scale_button.on ("click", function increaseHeight(){
-    var map = document.getElementById("location-canvas");
-    var height = map.offsetHeight;
-    var newHeight = height + 250;
-    map.style.height = newHeight + 'px';
+// scale for google map
+
+$(".scale").click(function(){
+    $(".scale").toggleClass("minus")
+    if ($(".contacts_banner").hasClass("scale_twice")) {
+        $(".contacts_banner").removeClass("scale_twice")
+    }
+    else {
+        $(".contacts_banner").addClass("scale_twice")
+    }
+})
+
+// about member
+$(".member").on("click", function(){
+    $(this).parent().children().removeClass("active")
+    $(this).addClass("active")
+})
+
+// header popup
+
+$("#popup-1").on("click", function(){
+    $(".popup-1").toggleClass("visible-popup")
+})
+
+$("#popup-2").on("click", function(){
+    $(".popup-2").toggleClass("visible-popup")
+})
+
+$(".header-form-container").on("click", function(){
+    $(".popup-3").toggleClass("visible-popup")
+})
+
+// mobile-hamburger
+
+$('#mobile-hamburger').click(function(){
+    $('.top-bar').toggleClass('expanded')
+    $('.index_menu').toggleClass('hide-menu')
+    $('#mobile-hamburger').toggleClass('opened')
 })

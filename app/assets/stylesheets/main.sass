@@ -12,14 +12,19 @@
 @import 'publications3'
 @import 'contacts'
 body
-	background-color: $light_grey
+	background-image: image-url("stripe.png")
 	margin: 0 auto
 	font-family: 'Fira Sans', sans-serif
 	font-size: 1em
+.big-wrapper
+	background-color: $light_grey
+	margin: 20px
 .header
 	height: 110px
 	background-color: white
 	width: 100%
+	position: relative
+	z-index: 17
 	.logo
 		float: left
 		max-width: 180px
@@ -33,24 +38,117 @@ body
 		float: right
 		position: relative
 		top: 40px
+		overflow: visible
 		@media only screen and (max-width: 480px)
 			display: none
 		li
+			position: relative
 			img
 				max-width: 30px
 				max-height: 30px
 				width: auto
 				height: auto
+		.popup-1, .popup-2, .popup-3
+			background-color: #497488
+			opacity: 0
+			display: none
+			position: absolute
+			right: -12px
+			height: 70px
+			top: 50px
+			width: 200px
+			&:before
+				content: ""
+				position: absolute
+				display: block
+				width: 15px
+				height: 15px
+				top: -5px
+				right: 20px
+				background-color: #497488
+				transform: rotateZ(45deg)
+			.font14
+				color: white
+				padding: 15px
+		.popup-3
+			height: 260px
+			width: 430px
+			top: 0
+			transform: translateY(50px)
+			@media (max-width: 640px)
+				height: 380px
+			.font16
+				color: white
+				line-height: 50px
+				padding-left: 20px
+				margin: 0
+			.inner-form
+				background-color: white
+				display: block
+				height: 200px
+				width: 99%
+				margin: 0 auto
+				@media (max-width: 640px)
+					height: 320px
+				.mail-us
+					text-transform: uppercase
+					color: $navy
+					text-align: center
+					margin: 0
+				form
+					padding: 0
+					input
+						margin: 0 0 5px
+					textarea
+						height: 80px
+						margin: 0
+					button
+						height: 36px
+						width: 100%
+						margin: 5px auto
+						padding: 0 !important
+					.error
+						&.required
+							display: none
+		.visible-popup
+			&.popup-1, &.popup-2, &.popup-3
+				opacity: 1
+				z-index: 16
+				display: block
+#mobile-hamburger
+	display: inline-block
+	width: 40px
+	height: 40px
+	background-color: white
+	@media only screen and (min-width: 40.0625em)
+		display: none
+	.hamburger
+		+burger(30px, 4px, 7px, $navy, 2px)
+	&:hover
+		.hamburger
+			&, &::before, &::after
+				background-color: $red_violet
+	&.opened
+		.hamburger
+			+burger-to-cross
+			&::before, &::after
+				background-color: $navy
+		&:hover
+			.hamburger
+				&::before, &::after
+					background-color: $navy
 .banner
 	height: 500px
-	border-top: 1px solid $main
-	border-bottom: 1px solid $main
+	border-top: 1px solid $navy
+	border-bottom: 1px solid $navy
+	position: relative
+	z-index: 15
 	.bx-wrapper
 		margin: 0 auto
 		padding: 2px 0
 		height: 100%
 		position: relative
-		//right: -5px дає скрол
+		right: -5px
 		.bx-viewport
 			border: none
 			height: 100%		
@@ -83,6 +181,7 @@ body
 		position: relative
 		top: 30%
 		left: 10%
+		display: inline-block
 		.inner_container
 			position: relative
 			.brackets
@@ -101,23 +200,46 @@ body
 				height: 210px
 				color: white
 				background: rgba(42,93,110, 0.6)
-		h1
-			color: white
-			line-height: 1
-		p 	
-			font-size: 1em
-			line-height: 1.2
+				.inner-header
+					font-size: 3em
+					line-height: 0.9em
+					font-weight: 500
+					text-transform: uppercase
+					a 
+						color: white
+				.inner-p
+					font-size: 1em
+					font-weight: 400
+					line-height: 1.3em
+					padding: 5px 0
+					font-weight: 300
+.hide-menu
+	&.index_menu
+		max-height: none
+.top-bar
+	&.expanded
+		max-height: none !important
 .index_menu
 	position: relative
+	top: 450px
+	max-height: 0
+	z-index: 16
+	@media (max-width: 640px)
+		top: 0
 	.menu_container
-		position: absolute
-		top: -50px
-		width: 97%
+		position: relative
+		top: 0
+		width: 100%
 .menu
 	position: relative
 	z-index: 10
 	.top-bar
-		min-height: 70px
+		//min-height: 70px
+		@media only screen and (max-width: 40.0625em)
+			max-height: 0
+		.title-area
+			@media only screen and (max-width: 40.0625em)
+				height: 0
 		.top-bar-section
 			ul
 				li
@@ -133,6 +255,10 @@ body
 							font-size: 0.8em
 						&:hover
 							background: $navy
+							@media only screen and (max-width: 40.0625em)
+								background: $red_violet
+						@media only screen and (max-width: 40.0625em)
+							background: #123B41
 					.dropdown
 						li 
 							width: 100%
@@ -144,7 +270,7 @@ body
 								color: $navy
 								line-height: 50px
 								text-align: left
-								background: white !important
+								background-color: white !important
 								color: $navy !important
 								@media only screen and (max-width: 40.0625em)
 									font-size: 0.75em
@@ -164,12 +290,6 @@ body
 		padding: 30px 0 0 0
 		@media only screen and (max-width: 40.0625em)
 			padding: 10px 0 0 0
-	ul
-		li 
-			line-height: 2.5
-			color: #9EB9CA
-			span
-				color: $grey
 .inserts_buttons
 	border-bottom: 1px solid $light_grey
 	.active
@@ -221,6 +341,7 @@ body
 		.photo
 			height: 170px
 			background-size: cover
+			background-position: center
 		p 
 			font-weight: bold
 			color: $main
@@ -237,14 +358,8 @@ body
 			&:hover
 				p 	
 					color: $red_violet
-	.certificates
-		padding: 20px 15px
-		.certificate
-			height: 180px
-			width: 135px
-			background-image: image-url("cerfiticate.jpg")
-			background-size: cover
-			background-repeat: no-repeat
+.certificates_slider
+	padding: 30px 15px 0
 .footer
 	background-color: $light_grey
 	padding: 20px 10px
@@ -255,9 +370,9 @@ body
 		top: -10px
 		padding-right: 10px
 	.footer_nav
+		padding-bottom: 20px
 		.inline-list
 			padding-top: 10px
-			width: 400px
 			margin: 0
 			li
 				margin: 0

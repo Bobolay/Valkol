@@ -14,8 +14,10 @@ html.no-js lang="en"
     // google maps
     script src="http://maps.googleapis.com/maps/api/js"
   body
-    = render "header"
-    == yield
-    = render "footer"
+    
+    .big-wrapper
+        = render "header"
+        == yield
+        = render "footer"
 
     script src=asset_path("application.js")

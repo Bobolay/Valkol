@@ -2,8 +2,12 @@
 	text-transform: uppercase
 	color: white
 	font-size: 3em
-	line-height: 3.6em
+	line-height: 0.9em
 	font-weight: 500
+.font30
+	text-transform: uppercase
+	font-size: 1.875em
+	line-height: 1.875em
 .font29
 	text-transform: uppercase
 	font-size: 1.8125em
@@ -25,7 +29,7 @@
 .font16
 	font-size: 1em
 	line-height: 1.2em
-	// regular
+	font-weight: 400
 .font14
 	font-size: 0.875em
 	line-height: 1.5em
@@ -39,6 +43,10 @@
 	font-weight: 500
 	line-height: 1.1
 	padding: 30px 0 10px
+	a 
+		color: $navy
+		&:hover
+			color: $red_violet
 
 .header_right
 	float: right
@@ -74,12 +82,11 @@
 
 .underlined
 	border-bottom: 1px solid $light_grey
-	height: 70px
 .dashed
 	list-style-type: none
 	font-size: 0.875em
 	color: $navy
-	font-weight: 400
+	font-weight: 300
 	li
 		text-indent: -15px
 		line-height: 21px
@@ -88,6 +95,10 @@
 			content: "\2014"
 			text-indent: -10px
 			padding-right: 5px
+		a 
+			color: $blue
+			&:hover
+				color: $red_violet
 .padding
 	padding: 10px
 .padding_side

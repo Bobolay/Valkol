@@ -1,22 +1,28 @@
 .about_us_banner, .page-banner
 	width: 100%
 	height: 250px
-	background-color: grey
 	border-top: 1px solid $main
 	border-bottom: 1px solid $main
+	background-position: center
+	background-size: cover
 .bcg_color
 	background-color: white
 	padding-bottom: 50px
 	.side_nav
+		@media (max-width: 640px)
+			display: none
 		ul
-			padding: 20px
+			padding-top: 20px
+			list-style: none
+			margin-left: 0
 			li 
 				a 
 					font-style: italic
-					color: #B8B8BA
+					color: $grey
 					transform: .15s
+					font-weight: 300
 					&:hover
-						color: #8FBFD3
+						color: $navy
 	.table_abus
 		border: none
 		border-collapse: collapse
@@ -35,39 +41,87 @@
 				color: $main
 				font-size: 1em
 	.personal
+		@media (max-width: 640px)
+			.tab-title
+				&:nth-child(-n+3)
+					width: 100%
+					.photo
+						width: 30%
+						float: left
+						margin-right: 20px
+						margin-bottom: 20px
+					.names 
+						padding: 0 10px
+					.font14
+						padding: 10px 10px 0 0
+				.content
+					display: block !important
+					p
+						font-weight: 300
+						line-height: 21px
+						margin: 0 15px
+						font-size: 0.875em
+						color: $grey
 		.tab-title
+			position: static
+			&:nth-child(3n+1)
+				clear: left
 			a
 				padding: 0
 				background-color: transparent
 				transition: .15s
 				outline: none
+			.content
+				display: none
+			&.active
+				&.has-description
+					height: 500px
+					&:after
+						content: "\0002C5"
+						position: relative
+						top: -15px
+						left: 50%
+						color: $grey
+				.content
+					display: block
+					height: 100px
+					position: absolute
+					left: 0
+					width: 95%
+					margin-top: 15px
+					p 
+						font-weight: 300
+						line-height: 21px
+						margin: 0 15px
+						font-size: 0.875em
+						color: $grey
 		.photo
-			height: 260px
-			width: 220px
+			height: 250px
+			width: 100%
 			background-position: center
 			background-size: cover
 		.names 
 			text-transform: uppercase
-			color: $main
-			font-size: 1.3em
-			font-weight: bold
+			color: $navy
+			font-weight: 600
 			line-height: 1.1
 			padding: 10px 0 5px
 			margin: 0
-		.place
-			color: grey
-			font-style: italic
-			font-size: 0.875em
+			font-size: 1.3125em
+			@media only screen and (max-width: 1000px)
+				font-size: 1em		
+
+		
 	.tabs-content
-		border-bottom: 1px dotted $light_grey
+		margin-bottom: 0
 		p
 			font-size: .875em
-			color: grey
+			color: $grey
 	.certificates_slider
 		.bx-wrapper
 			.bx-viewport
-				width: 85% !important
-				left: 30px
+				//width: 85% !important
+				//left: 30px
 				border: none
 				box-shadow: none
 				.slider4
@@ -78,22 +132,15 @@
 							width: 130px
 							height: 200px
 							margin: 0 auto
-							&:hover
-								.overlay
-									opacity: 0.7
-							.overlay
-								background: $red_violet
-								width: 100%
-								height: 100%
-								padding: 10px
-								opacity: 0
-								transition: .15s
+							filter: grayscale(100%)
 			.bx-controls
 				.bx-default-pager
 					padding-top: 0
 					margin-top: 20px
 					border-radius: 5px
-					width: 95%
+					width: 100%
+					height: 7px
+					background-color: $light-grey
 					a 
 						background-color: transparent
 					.active
@@ -103,12 +150,13 @@
 						.bx-pager-link
 							width: 100%
 							border-radius: 5px
+							height: 7px
 				.bx-controls-direction
 			.bx-prev
-				left: 0
+				left: -20px
 				background-position: 0 0
 				background-image: url(#{asset_path('left_arrow.png')})
 			.bx-next
-				right: 30px
+				right: -30px
 				background-position: 0 0
 				background-image: url(#{asset_path('right_arrow.png')})

@@ -7,13 +7,14 @@
         .header_right історія
       .row
       .medium-3.columns.side_nav
-        ul.no-bullet.sub-nav
-          li
-            a href="#" Історія
-          li
-            a href="#experience" Наш досвід
-          li
-            a href="#team" Команда
+        div data-magellan-expedition="fixed" 
+          ul
+            li
+              a href="#" Історія
+            li
+              a href="#experience" Наш досвід
+            li
+              a href="#team" Команда
       .medium-9.columns
         == html_block_with_fallback(:history, true)
           p.font24.section_header консалтингова компанія тзов &lsaquo;&lsaquo;валкол&rsaquo;&rsaquo;
@@ -63,18 +64,18 @@
           .medium-9.columns.end.right
             == html_block_with_fallback(:team, true)
               p.font24.section_header персонал компанії (оцінювачі)
-              p.font14.navy Нами виконано понад п'ять тисяч різного виду оціночних робіт, в тому числі оцінок цілісних майнових комплексів; цінних паперів; нематеріальних активів; майнових прав; оцінка бізнесу, розробку та оцінку інвестиційних проектів, а також аналітичні дослідження ринку нерухомості. У своїй роботі ми використовуємо сучасні програмні продукти, у тому числі розроблені нашими спеціалістами, такSі як &lsaquo;&lsaquo;Експрес-оцінка&rsaquo;&rsaquo;, &lsaquo;&lsaquo;Автоматизоване місце оцінювача&rsaquo;&rsaquo; та інші. Це допомагає нам гарантувати високу якість робіт, що виконуються в обумовлені із замовниками стислі терміни.
+              p.font14.navy Нами виконано понад п'ять тисяч різного виду оціночних робіт, в тому числі оцінок цілісних майнових комплексів; цінних паперів; нематеріальних активів; майнових прав; оцінка бізнесу, розробку та оцінку інвестиційних проектів, а також аналітичні дослідження ринку нерухомості. У своїй роботі ми використовуємо сучасні програмні продукти, у тому числі розроблені нашими спеціалістами, такі як &lsaquo;&lsaquo;Експрес-оцінка&rsaquo;&rsaquo;, &lsaquo;&lsaquo;Автоматизоване місце оцінювача&rsaquo;&rsaquo; та інші. Це допомагає нам гарантувати високу якість робіт, що виконуються в обумовлені із замовниками стислі терміни.
               p.font14.navy Співробітниками компанії надруковано 30 науково-практичних робіт з оціночної діяльності та аналітики ринку, у т.ч. 4 монографії, присвячених теоретичним і практичним проблемам оціночної діяльності в Україні.
             .row.personal.tabs data-tab=""
               - @members.each do |member|
-                .medium-4.columns.left.tab-title
+                .medium-4.small-4.columns.left.tab-title.member class=("has-description" if member.description.present?)
                   a href="#menu3"
                     .photo style="background-image: url(#{member.image.url(:show)})"
                     p.names
                       = member.name
-                    p.place
+                    p.font14.italic.grey
                       = member.position
                   - if member.description.present?
-                    .content style="display: none"
-                      = member.description
-
+                    .content
+                      p
+                        = member.description
