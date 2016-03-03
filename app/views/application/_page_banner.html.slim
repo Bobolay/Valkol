@@ -1,2 +1,4 @@
+.menu_wrapper
+	= render "menu"
 .page-banner.about_us_banner style=("background-image: url(#{@page_banner_image.url})" if @page_banner_image.try{|b| b.exists? })
-  = render "menu"
+  / = render "menu"

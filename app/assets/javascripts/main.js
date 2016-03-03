@@ -98,7 +98,7 @@ $("#popup-2").on("click", function(){
     $(".popup-2").toggleClass("visible-popup")
 })
 
-$(".header-form-container").on("click", function(){
+$("#popup-3").on("click", function(){
     $(".popup-3").toggleClass("visible-popup")
 })
 
@@ -107,5 +107,6 @@ $(".header-form-container").on("click", function(){
 $('#mobile-hamburger').click(function(){
     $('.top-bar').toggleClass('expanded')
     $('.index_menu').toggleClass('hide-menu')
+    $('.menu_wrapper').toggleClass('hide-menu')
     $('#mobile-hamburger').toggleClass('opened')
 })

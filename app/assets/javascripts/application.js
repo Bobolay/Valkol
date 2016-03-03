@@ -15,9 +15,9 @@
 // require turbolinks
 //= require images
 //= require foundation.min
-//= require foundation/foundation.topbar.js
+// require foundation/foundation.topbar.js
 // require foundation/foundation.dropdown
-//= require foundation/foundation.tab
+// require foundation/foundation.tab
 //= require jquery.bxslider.min.js
 //= require fancy/jquery.fancybox.pack.js
 //= require fancy/jquery.mousewheel-3.0.6.pack.js
