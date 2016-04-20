@@ -4,3 +4,4 @@ asset 'foundation', '5.5.3'
 asset "codemirror"
 
 asset "jquery-pjax"
+asset "sass-burger", github: 'jorenvanhee/sass-burger', ref: '4e449f7'
