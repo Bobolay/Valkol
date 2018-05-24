@@ -22,7 +22,7 @@
 //= require fancy/jquery.fancybox.pack.js
 //= require fancy/jquery.mousewheel-3.0.6.pack.js
 //= require jquery-pjax/jquery.pjax
-//= require jquery-form/jquery.form
+//= require jquery-form/dist/jquery.form.min
 //= require jquery.forms
 
 //= require jquery.one-click-outside.js
