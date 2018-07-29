@@ -24,5 +24,4 @@ vendor/assets/bower.json
 vendor/assets/.bowerrc
 config/application.yml
 config/social_keys.yml
-Gemfile.lock
 .idea
