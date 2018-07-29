@@ -26,7 +26,7 @@ class PagesController < ApplicationController
 
 	end
 	def contacts
-
+		@google_map = true
 	end
 
   def pricing

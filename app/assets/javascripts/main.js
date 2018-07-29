@@ -28,8 +28,9 @@ $(document).ready(function() {
     $(document).foundation();
 });
 
+
 // google mep
-function initialize() {
+function initializeGoogleMap() {
     var styles = [
         {
             stylers: [
@@ -62,9 +63,11 @@ function initialize() {
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
 }
-google.maps.event.addDomListener(window, 'resize', initialize);
-google.maps.event.addDomListener(window, 'load', initialize)
 
+if(window.google && google.maps) {
+  google.maps.event.addDomListener(window, 'resize', initializeGoogleMap);
+  google.maps.event.addDomListener(window, 'load', initializeGoogleMap)
+}
 // fancybox
 $(document).ready(function() {
     $('.fancybox').fancybox();

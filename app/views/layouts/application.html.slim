@@ -1,23 +1,25 @@
-html.no-js lang="en" 
+html.no-js lang=I18n.locale
   head
-    meta charset="utf-8" 
-    meta content="width=device-width, initial-scale=1.0" name="viewport" 
+  meta charset="utf-8"
+  meta content="width=device-width, initial-scale=1.0" name="viewport"
 
-    = seo_tags
+  = seo_tags
 
 
-    link href=asset_path("application.css") rel="stylesheet"
+  link href=asset_path("application.css") rel="stylesheet"
 
-    // google font
-    script src="/assets/modernizr.js" 
+  // google font
+  script src="/assets/modernizr.js"
 
-    // google maps
-    script src="http://maps.googleapis.com/maps/api/js"
+  // google maps
+
   body
-    
-    .big-wrapper
-        = render "header"
-        == yield
-        = render "footer"
 
-    script src=asset_path("application.js")
+  .big-wrapper
+    = render "header"
+    == yield
+    = render "footer"
+
+  - if @google_map
+    script src="//maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}"
+  script src=asset_path("application.js")
