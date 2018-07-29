@@ -1,11 +1,13 @@
 class Service < ActiveRecord::Base
   attr_accessible *attribute_names
-  image :banner
 
-  globalize :name, :short_description, :content
+  globalize :name, :url_fragment, :short_description, :content
 
   belongs_to :service_category
   attr_accessible :service_category
+
+  image :avatar
+  image :banner
 
   has_seo_tags
   has_sitemap_record
