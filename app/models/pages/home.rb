@@ -1,3 +1,3 @@
-class Pages::Home < Page
+class Pages::Home < Cms::Page
 
 end

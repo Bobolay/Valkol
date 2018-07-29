@@ -32,15 +32,8 @@
 .section
   .row.bcg_color
     .medium-12.columns
-      .row.section_1.padding_side
-        .medium-4.columns
-          .section_logo
-            img alt="logo" src=asset_path("Val_logo.png")
-        .medium-8.columns
-          .section_about_us
-            p.font24.section_header консалтингова компанія &lsaquo;&lsaquo;валкол&rsaquo;&rsaquo;
-            p.font14.dark_grey Аналітично-консалтингове підприємство, діяльність якого пов'язана в тому числі з оцінкою майна та майнових прав, матеріальних та нематеріальних активів, заставного майна та земельних ділянок.
-            p.font14.dark_grey Компанія працює на ринку оціночно-консалтингових послуг більше 10 років та надає якісні та професійні послуги фізичним та юридичним особам. у складі ТзОВ &lsaquo;&lsaquo;ВАЛКОЛ&rsaquo;&rsaquo; працюють сертифіковані оцінювачі з великим досвідом практичної роботи.
+      = raw @home_page_info.about_text
+
       .row
         .medium-12.columns.underlined
           .header_right id="experience" наш досвід

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  banner: 
+  history: MyText
+  experience: MyText
+  team: MyText
+
+two:
+  banner: 
+  history: MyText
+  experience: MyText
+  team: MyText

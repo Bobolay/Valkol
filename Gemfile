@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.10'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -15,7 +15,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -37,53 +36,47 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
-gem 'slim-rails'
+
+gem 'cms', github: 'pkorenev/cms'
+gem 'attachable', github: 'VoroninNick/attachable'
+gem 'slim-rails', '3.1.1'
+gem 'html2slim'
 gem 'bower-rails'
-
-# test
-
-gem "protected_attributes"
-gem 'russian'
-#gem 'ukrainian'
-
-gem 'rails-i18n'
-gem 'rails_admin-i18n', github: "starchow/rails_admin-i18n"
-
-gem 'paperclip'
-gem 'devise'
-gem 'acts-as-taggable-on'
-
-# rails_admin
+gem 'protected_attributes'
 gem 'rails_admin'
 gem 'rails_admin_nestable'
-gem 'ckeditor'
-
-local = ENV["LOCAL"]
-
-
+gem 'figaro'
+gem 'devise'
 gem 'enumerize'
-
-if local
-  gem 'cms', path: "/media/data/pasha/gems/cms"
-else
-  gem 'cms', github: "pkorenev/cms"
-end
-
-gem "htmlcompressor"
-gem 'rack-page_caching'
-gem 'paperclip-optimizer'
-gem 'image_optim'
-gem 'image_optim_pack'
-gem 'asset-image-opt'
-gem 'sprockets-image_compressor'
-
-
-
-
+gem 'ckeditor'
+gem 'paperclip'
+gem 'paperclip-tinify'
+gem 'pluck_to_hash'
+gem 'yaml_db'
 gem 'quiet_assets'
+gem 'htmlcompressor'
+gem 'rack-page_caching'
+gem 'puma'
+gem 'ace-rails-ap'
+gem 'i18n-active_record', github: 'svenfuchs/i18n-active_record', require: 'i18n/active_record'
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'pg', '~> 0.21'
+gem 'globalize'
+gem 'rails_admin_globalize_field'
+gem 'route_translator'
+#########
+
+# rails_admin
+gem 'russian'
+
+gem 'rails_admin-i18n', github: "starchow/rails_admin-i18n"
+
+
+
+
 gem 'pry-rails'
 
-gem 'attachable', github: "VoroninNick/attachable"
 
 
 

@@ -1,3 +1,4 @@
+asset "jquery", '2.2.4'
 asset "jquery-form"
 asset 'foundation', '5.5.3'
 

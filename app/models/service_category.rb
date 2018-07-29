@@ -1,20 +1,26 @@
 class ServiceCategory < ActiveRecord::Base
   attr_accessible *attribute_names
 
+  globalize :name, :url_fragment, :content
+
   has_many :services
   attr_accessible :services, :service_ids
 
-  has_cache
-  def cache_instances
-    Pages.all_instances
+  has_cache do
+    pages :about_us, :contacts, :home, :interesting_articles, :pricing, :publications, :services
   end
-
-  before_validation :initialize_url_fragment
 
   scope :sort_by_sorting_position, -> { order("sorting_position asc") }
   scope :published, -> { where(published: 't') }
 
-  def url
-    url_helpers.send("services_path") + "##{self.url_fragment}"
+  def url(locale = I18n.locale)
+    return nil if url_fragment.blank?
+
+    url_helpers.send("services_#{locale}_path") + "##{url_fragment}"
+  end
+
+  def linkable_path
+    name_str = name.presence || "[ServiceCategory ##{id}]"
+    "#{name_str}"
   end
 end

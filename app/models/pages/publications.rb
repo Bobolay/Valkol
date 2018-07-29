@@ -1,3 +1,3 @@
-class Pages::Publications < Page
+class Pages::Publications < Cms::Page
 
 end

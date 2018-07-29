@@ -1,3 +1,3 @@
-class Pages::Services < Page
+class Pages::Services < Cms::Page
 
 end

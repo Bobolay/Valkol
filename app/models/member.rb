@@ -1,21 +1,15 @@
 class Member < ActiveRecord::Base
   attr_accessible *attribute_names
 
-  has_attached_file :image, styles: { show: "220x260#" }
+  globalize :name, :position, :description
 
-  scope :published, -> { where(published: 't') }
+  image :image, styles: { show: "220x260#" }
+
+  boolean_scope :published
   scope :sort_by_sorting_position, -> { order("sorting_position asc") }
 
-  %w(image).each do |k|
-    do_not_validate_attachment_file_type k
-    attr_accessible k, "#{k}_delete"
-
-    allow_delete_attachment(k)
-  end
-
-  has_cache
-  def cache_instances
-    [Pages.about_us]
+  has_cache do
+    pages :about_us
   end
 
 

@@ -8,7 +8,8 @@ class PagesController < ApplicationController
 	caches_page :index, :about_us, :contacts, :process_page, :sitemap
 
 	def index
-		set_page_metadata("home")
+		set_page_metadata(:home)
+		@home_page_info = HomePageInfo.first_or_initialize
 		@certificates = Certificate.published.sort_by_sorting_position
 		@publications = Publication.published.featured
 		@interesting_articles = InterestingArticle.published.featured
@@ -19,6 +20,7 @@ class PagesController < ApplicationController
 	def about_us
 		@members = Member.all
 		@certificates = Certificate.published.sort_by_sorting_position
+		@about_us_page_info = AboutUsPageInfo.first_or_initialize
 
 
 
@@ -28,6 +30,7 @@ class PagesController < ApplicationController
 	end
 
   def pricing
+		@pricing_page_info = PricingPageInfo.first_or_initialize
 		@application_forms = ApplicationForm.published.sort_by_sorting_position
 	end
 

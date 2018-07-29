@@ -15,10 +15,14 @@
 /log/*.log
 /tmp
 
-/Gemfile.lock
-/vendor/assets/bower_components
-/public
 
-.idea
-vendor/assets/.bowerrc
+public
+db/schema.rb
+db/data.yml
+vendor/assets/bower_components
 vendor/assets/bower.json
+vendor/assets/.bowerrc
+config/application.yml
+config/social_keys.yml
+Gemfile.lock
+.idea
