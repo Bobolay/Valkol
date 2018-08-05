@@ -27,10 +27,6 @@ class Publication < ActiveRecord::Base
 
   has_tags
 
-  def comments_count
-    "124 коментаря"
-  end
-
   before_save :initialize_released_at
 
   def initialize_released_at

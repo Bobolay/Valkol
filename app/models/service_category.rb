@@ -7,14 +7,14 @@ class ServiceCategory < ActiveRecord::Base
   attr_accessible :services, :service_ids
 
   has_cache do
-    pages :about_us, :contacts, :home, :interesting_articles, :pricing, :publications, :services
+    pages self, :about_us, :contacts, :home, :interesting_articles, :pricing, :publications, :services, Service.published, InterestingArticle.published, Publication.published
   end
 
   scope :sort_by_sorting_position, -> { order(sorting_position: :asc) }
   scope :published, -> { where(published: 't') }
-  scope :with_translated_services, -> {
+  scope :with_translated_services, -> do
     joins(:services).merge(Service.published.translated)
-  }
+  end
   default_scope do
     sort_by_sorting_position
   end

@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
+  caches_page :index, :show
+
   def index
-
-
     set_page_metadata('services')
     set_page_banner_image(@page_instance.try(:page_banner))
 

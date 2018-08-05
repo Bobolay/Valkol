@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  caches_page :show,
+  caches_page :index, if: -> { !pjax? }
+
   def index
     @articles = resource_class.published.translated
 

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 		add_breadcrumb(action_name)
 	end
 
-	caches_page :index, :about_us, :contacts, :process_page, :sitemap
+	caches_page :index, :about_us, :contacts, :pricing
 
 	def index
 		set_page_metadata(:home)
@@ -20,10 +20,8 @@ class PagesController < ApplicationController
 		@members = Member.all
 		@certificates = Certificate.published.sort_by_sorting_position
 		@about_us_page_info = AboutUsPageInfo.first_or_initialize
-
-
-
 	end
+
 	def contacts
 		@google_map = true
 	end

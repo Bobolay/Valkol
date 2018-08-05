@@ -12,6 +12,6 @@ class Certificate < ActiveRecord::Base
   end
 
   has_cache do
-    pages :about_us
+    pages :home, :about_us
   end
 end

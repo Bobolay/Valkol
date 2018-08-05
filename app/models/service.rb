@@ -12,7 +12,7 @@ class Service < ActiveRecord::Base
   has_seo_tags
   has_sitemap_record
   has_cache do
-    pages :about_us, :contacts, :home, :interesting_articles, :pricing, :publications, :services
+    pages self, :about_us, :contacts, :home, :interesting_articles, :pricing, :publications, :services, Service.published, InterestingArticle.published, Publication.published
   end
 
   scope :sort_by_sorting_position, -> { order(sorting_position: :asc) }
