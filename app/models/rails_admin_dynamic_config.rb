@@ -101,9 +101,9 @@ module RailsAdminDynamicConfig
         end
 
         config.navigation_static_links = {
-            mailchimp: "/admin/mailchimp",
+            #mailchimp: "/admin/mailchimp",
             locales: "/file_editor/locales",
-            site_data: "/file_editor/site_data.yml"
+            #site_data: "/file_editor/site_data.yml"
         }
 
 
@@ -188,6 +188,8 @@ module RailsAdminDynamicConfig
 
         config.model Attachable::Asset do
           navigation_label_key(:assets, 1)
+          visible false
+
           field :data
           #watermark_position_field(:data)
           field :sorting_position
