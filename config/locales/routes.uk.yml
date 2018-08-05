@@ -1,0 +1,8 @@
+uk:
+  routes:
+    services: "poslugy"
+    publications: "publications"
+    interesting_articles: "interesting_articles"
+    about-us: "pro-nas"
+    pricing: "pricing"
+    contacts: "contacts"

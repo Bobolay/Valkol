@@ -11,8 +11,8 @@ class PagesController < ApplicationController
 		set_page_metadata(:home)
 		@home_page_info = HomePageInfo.first_or_initialize
 		@certificates = Certificate.published.sort_by_sorting_position
-		@publications = Publication.published.featured
-		@interesting_articles = InterestingArticle.published.featured
+		@publications = Publication.published.featured.translated.uniq
+		@interesting_articles = InterestingArticle.published.featured.translated.uniq
 		@home_banners = HomeBanner.published.sort_by_sorting_position
 	end
 

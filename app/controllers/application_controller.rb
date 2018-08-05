@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   include Cms::Helpers::MetaDataHelper
   include Cms::Helpers::NavigationHelper
   include Cms::Helpers::ImageHelper
+  include Cms::Helpers::UrlHelper
 
   initialize_locale_links
 
@@ -60,7 +61,11 @@ class ApplicationController < ActionController::Base
     @service_categories ||= ServiceCategory.published.translated.with_translated_services.sort_by_sorting_position.uniq
   end
 
-  helper_method :service_categories
+  def contacts_page_info
+    @contacts_page_info ||= ContactsPageInfo.first_or_initialize
+  end
+
+  helper_method :service_categories, :contacts_page_info
 
   def current_service_category_id
     @service.try(:service_category).try(:id)

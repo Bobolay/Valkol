@@ -6,51 +6,66 @@
 =render "breadcrumbs"
 .row.bcg_color
   .medium-12.columns
-    = html_block_with_fallback("contact_data", true, nil, self)
-      .row
-        .medium-12.columns.underlined
-          .header_right зв'язатись з нами
-      .row.padding
-        .medium-6.columns
-          table.table_contacts
+    .row
+      .medium-12.columns.underlined
+        .header_right
+          = t("contacts.contact-us")
+    .row.padding
+      .medium-6.columns
+        table.table_contacts
+          - contacts_page_info.phones.each do |phone|
             tr
               td
                 img alt="phone" src=asset_path("contacts/phone.png")
               td
-                p тел.:
+                p
+                  = t("contacts.labels.phone")
               td
-                p.contacts_numbers +38 (032) 225 62 08
+                p.contacts_numbers
+                  a href=phone_url(phone) rel="nofollow"
+                    = formatted_phone_number(phone)
+          - contacts_page_info.fax_phones.each do |phone|
             tr
               td
                 img alt="fax" src=asset_path("contacts/fax.png")
               td
-                p факс.:
+                p
+                  = t("contacts.labels.fax")
               td
-                p.contacts_numbers +38 (032) 225 62 06
+                p.contacts_numbers
+                  a href=phone_url(phone) rel="nofollow"
+                    = formatted_phone_number(phone)
+          - contacts_page_info.skype_names.each do |skype_name|
             tr
               td
                 img alt="skype" src=asset_path("contacts/skype.png")
               td
-                p skype:
+                p
+                  = t("contacts.labels.fax")
               td
-                p.contacts_numbers valkolconsulting
-        .medium-6.columns
-          table.table_contacts
+                p.contacts_numbers
+                  a href=skype_url(skype_name)
+                    = skype_name
+      .medium-6.columns
+        table.table_contacts
+          - contacts_page_info.emails.each do |email|
             tr
               td
                 img alt="mail" src=asset_path("contacts/mail.png")
               td
-                p last_ocinka@ukr.net
-            tr
-              td
-                img alt="location" src=asset_path("contacts/location.png")
-              td
                 p
-                  |вул. Ш. Руставелі, 34а/21
-                  br
-                  |м. Львів, 79005
+                  a href=email_url(email)
+                    = formatted_email(email)
+          tr
+            td
+              img alt="location" src=asset_path("contacts/location.png")
+            td
+              p
+                = raw contacts_page_info.address.join("<br/>")
+
     .row
       .medium-12.columns.underlined
-        .header_right форма зворотнього зв'язку
+        .header_right
+          = t("contacts.form-title")
     .row.padding
       = render "message_form", form_class: "contacts-message-form"

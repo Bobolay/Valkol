@@ -2,26 +2,25 @@
   .large-12.column
     .row
       .large-6.medium-6.columns
-        p.font12.grey &copy; Консалтингова компанія &laquo;ВАЛКОЛ&trade;&raquo;. 1995 - #{Date.today.year}. Всі права застережено. Правила користування сайтом.
+        p.font12.grey
+          = raw t("footer.copyright", year: Date.today.year)
       .large-6.medium-6.columns
         .footer_nav
           ul.inline-list
-            li
-              a href=about_us_path про нас
-            li
-              a href=services_path послуги
-            li
-              a href=pricing_path ціни
-            li
-              a href=publications_path публікації
-            li
-              a href=contacts_path контакти
+            - main_menu.each do |item|
+              li
+                - if item[:active]
+                  span.active
+                    = item[:name]
+                - else
+                  a href=about_us_path class=("has-active" if item[:has_active])
+                    = item[:name]
+
     .row
       .large-4.medium-6.columns
         img alt="Voronin_logo" src=asset_path("Voronin_logo.png")
         p.font12.grey
-          | Розроблено в студії М. Вороніна
-          br
-          | в 2014 році. Інформація про сайт
+          = raw t("footer.developed-by", year: 2016)
       .large-6.medium-6.columns
-        p.font12.grey Аналітично-консалтингове підприємство "ВАЛКОЛ" працює на ринку оціночно-консалтингових послуг 10 років та надає якісні та професійні послуги фізичним та юридичним особам. У складі ТзОВ "ВАЛКОЛ" працюють сертифіковані оцінювачі з великим досвідом практичної роботи.
+        p.font12.grey
+          = raw t("footer.company-description")

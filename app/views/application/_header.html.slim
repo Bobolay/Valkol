@@ -23,24 +23,26 @@
                 img alt="phone" src=asset_path("geo.png")
               .popup-1
                 p.font14
-                  | вул. Ш.Руставелі, 34а/21
-                  br
-                  | м. Львів, 72005
+                  = raw contacts_page_info.address.join("<br/>")
             li.header-button
               a#popup-2 href="#"
                 img alt="phone" src=asset_path("phone.png")
               .popup-2
                 p.font14
-                  | +38 (032) 225 62 08
-                  br
-                  | +38 (032) 225 62 06
+                  - phones = (contacts_page_info.phones + contacts_page_info.fax_phones).uniq
+                  = raw phones.map { |phone| "<a href='#{phone_url(phone)}'>#{formatted_phone_number(phone)}</a>" }.join("<br/>")
+
             li.header-button
               a#popup-3 href="#"
                 img alt="" src=asset_path("mail.png")
               .popup-3
-                p.font16 last_ocinka@ukr.net
+                p.font16.contact-form-popup-header
+                  - contacts_page_info.emails.each do |email|
+                    a href=email_url(email)
+                      = email
                 .inner-form
-                  p.font14.mail-us напишіть нам
+                  p.font14.mail-us
+                    = t("header.contact-form.title")
                   = render "message_form"
             li
               a#mobile-hamburger

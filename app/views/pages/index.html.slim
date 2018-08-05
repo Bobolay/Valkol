@@ -36,7 +36,8 @@
 
       .row
         .medium-12.columns.underlined
-          .header_right id="experience" наш досвід
+          .header_right id="experience"
+            = t("home.experience-title")
 
       .row.section_2.padding_side
         - service_categories.each_with_index do |category, index|
@@ -54,36 +55,39 @@
                     = s.name
 
 
-      .row.inserts_buttons.padding_side
-        .medium-12.columns
-          ul.tabs data-tab="" role="tablist"
-            li.tab-title.active role="presentation"
-              a aria-controls="panel2-1" aria-selected="true" href="#panel2-1" role="tab" tabindex="0"
-                | наші публікації
-            li.tab-title role="presentation"
-              a aria-controls="panel2-2" aria-selected="false" href="#panel2-2" role="tab" tabindex="0"
-                | цікаво знати
-              .button_arrow
-                a href=publications_path >
-      .row.inserts.padding
-        .medium-12.columns
-          .tabs-content
-            section#panel2-1.content.active aria-hidden="false" role="tabpanel"
-              .row
-                - @publications.each do |article|
-                  = render "article_item", article: article
-            section#panel2-2.content aria-hidden="true" role="tabpanel"
-              .row
-                - @interesting_articles.each do |article|
-                  = render "article_item", article: article
+      - if @publications.present? || @interesting_articles.present?
+        .row.inserts_buttons.padding_side
+          .medium-12.columns
+            ul.tabs data-tab="" role="tablist"
+              - if @publications.present?
+                li.tab-title.active role="presentation"
+                  a aria-controls="panel2-1" aria-selected="true" href="#panel2-1" role="tab" tabindex="0"
+                    = t("home.publications-title")
+              - if @interesting_articles.present?
+                li.tab-title role="presentation"
+                  a aria-controls="panel2-2" aria-selected="false" href="#panel2-2" role="tab" tabindex="0"
+                    = t("home.interesting-articles-title")
+                  .button_arrow
+                    a href=publications_path >
+      - if @publications.present? || @interesting_articles.present?
+        .row.inserts.padding
+          .medium-12.columns
+            .tabs-content
+              - if @publications.present?
+                section#panel2-1.content.active aria-hidden="false" role="tabpanel"
+                  .row
+                    - @publications.each do |article|
+                      = render "article_item", article: article
+              - if @interesting_articles.present?
+                section#panel2-2.content aria-hidden="true" role="tabpanel"
+                  .row
+                    - @interesting_articles.each do |article|
+                      = render "article_item", article: article
 
 
       .row
         .medium-12.columns.underlined
-          .header_right id="experience" сертифікати і свідоцтва
+          .header_right id="experience"
+            = t("home.certificates-title")
       = render "certificates_slider"
-      .row.padding
-        .large-6.column
-          p.font14 Сертифікат суб'єкта оціночної діяльності № 8314/09 від 19.02.2009р., виданого Фондом державного майна України. Ліцензії Державного Комітету України із земельних ресурсів АВ № 390699 від 03.07.2008р.
-        .large-6.column
-          p.font14 Свідоцтво про державну реєстрацію АОО № 379616, Ідентифікаційний код 13819807, р/р 26003001307518 у ЗАТ &lsaquo;&lsaquo;ОТП Банк&rsaquo;&rsaquo; в м. Київ.
+      = raw @home_page_info.certificates_description

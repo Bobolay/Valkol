@@ -15,6 +15,9 @@ class ServiceCategory < ActiveRecord::Base
   scope :with_translated_services, -> {
     joins(:services).merge(Service.published.translated)
   }
+  default_scope do
+    sort_by_sorting_position
+  end
 
   def url(locale = I18n.locale)
     return nil if url_fragment.blank?

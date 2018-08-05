@@ -3,22 +3,23 @@
 form.ajax-submit action=message_path method="post" show-preloader="" class=form_class
   .content
     .medium-6.columns
-      .input.string required="" required-message="Введіть ім’я"
-        input name="message[name]" type="text" placeholder="Ім'я"
-      .input.string required="" required-message="Введіть телефон"
-        input name="message[phone]" type="text" placeholder="Телефон"
-      .input.string required="" required-message="Введіть електронну скриньку"
-        input name="message[email]" type="text" placeholder="Електронна скринька"
+      .input.string required="" required-message=t("forms.errors-messages.required.name")
+        input name="message[name]" type="text" placeholder=t("forms.placeholders.name")
+      .input.string required="" required-message=t("forms.errors-messages.required.phone")
+        input name="message[phone]" type="text" placeholder=t("forms.placeholders.phone")
+      .input.string required="" required-message=t("forms.errors-messages.required.email")
+        input name="message[email]" type="text" placeholder=t("forms.placeholders.email")
     .medium-6.columns
-      .input.text required="" required-message="Введіть текст повідомлення"
-        textarea name="message[comment]" rows="8" placeholder="Ваше повідомлення"
-      button.right надіслати
+      .input.text required="" required-message=t("forms.errors-messages.required.comment")
+        textarea name="message[comment]" rows="8" placeholder=t("forms.placeholders.comment")
+      button.right
+        = t("forms.buttons.send")
 
     .clearfix
 
   .success-message
     .title
       span.with_white_arrows
-        |Ви успішно відправили повідомлення
+        = t("forms.success-block.title")
     p
-      |Наш менеджер зв’яжеться з Вами найближчим часом
+      = t("forms.success-block.description")

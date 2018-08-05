@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  phones: MyText
+  fax_phones: MyText
+  skype_names: MyText
+  emails: MyText
+  address: MyText
+
+two:
+  phones: MyText
+  fax_phones: MyText
+  skype_names: MyText
+  emails: MyText
+  address: MyText

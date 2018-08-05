@@ -20,8 +20,6 @@ Rails.application.routes.draw do
       get ":id", action: :show, as: :interesting_article
     end
 
-
-
     controller :pages do
       get "about-us", action: "about_us", as: :about_us
       get "pricing", action: "pricing", as: :pricing

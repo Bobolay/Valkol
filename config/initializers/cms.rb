@@ -5,7 +5,7 @@ if !ENV["STD_PRECOMPILE"]
 end
 
 Cms.config.provided_locales do
-  [:uk, :en]
+  [:uk]
 end
 
 Cms.config.use_translations true

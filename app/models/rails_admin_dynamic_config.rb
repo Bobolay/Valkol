@@ -6,35 +6,6 @@ def include_templates_models(config)
   include_models(config, *templates_models)
 end
 
-
-def content_field(name = :content)
-  field name, :text do
-    help "Якщо редактор не відображається, обновіть сторінку"
-    html_attributes do
-      {
-        class: "my-codemirror",
-        mode: "slim"
-      }
-    end
-
-    def value
-      bindings[:object].send(name)
-    end
-  end
-end
-
-def page_fields(hide_content = false)
-  #configure_codemirror_html_field(:content)
-  field :banner
-  content_field  if !hide_content
-
-
-  html_block_fields
-  field :url
-  field :seo_tags
-  field :sitemap_record
-end
-
 def configure_codemirror_html_field(name)
   configure name, :code_mirror do
     theme = "night" # night
@@ -99,7 +70,7 @@ module RailsAdminDynamicConfig
               __cms_rails_admin_index_controller
             end
             new do
-              except [Message, ApplicationForm]
+              except [Message]
             end
             export
             bulk_delete
@@ -395,12 +366,48 @@ module RailsAdminDynamicConfig
           navigation_label_key :services, 1
           nestable_list(position_field: :sorting_position)
 
-          field :published
-          field :service_category
-          field :avatar
-          field :banner
-          field :translations, :globalize_tabs
-          field :seo_tags
+          list do
+            scopes do
+              h = {
+                all: ->(objects) do
+                  objects
+                end,
+                published: true,
+                unpublished: true
+              }
+
+              ServiceCategory.all.each do |category|
+                h[:"category-#{category.id}"] = {
+                  name: category.name,
+                  scope: ->(objects) do
+                    objects.with_category(category.id)
+                  end
+                }
+              end
+
+              h
+            end
+
+            field :published
+            field :service_category
+            field :avatar
+            field :banner
+            translated_field(:name)
+            field :translations do
+              visible false
+              queryable true
+              searchable [:name, :url_fragment]
+            end
+          end
+
+          edit do
+            field :published
+            field :service_category
+            field :avatar
+            field :banner
+            field :translations, :globalize_tabs
+            field :seo_tags
+          end
         end
 
         config.model_translation Service do
@@ -414,14 +421,26 @@ module RailsAdminDynamicConfig
           navigation_label_key :services, 2
           nestable_list(position_field: :sorting_position)
 
-          field :published
-          field :translations, :globalize_tabs
+          list do
+            field :published
+            translated_field(:name)
+            field :translations do
+              visible false
+              queryable true
+              searchable [:name, :url_fragment]
+            end
+          end
+
+          edit do
+            field :published
+            field :translations, :globalize_tabs
+          end
         end
 
         config.model_translation ServiceCategory do
           field :name
           field :url_fragment
-          content_field
+          field :content, :ck_editor
         end
 
         config.model Member do
@@ -527,6 +546,7 @@ module RailsAdminDynamicConfig
 
         config.model_translation HomePageInfo do
           field :about_text, :ck_editor
+          field :certificates_description, :ck_editor
         end
 
         config.model AboutUsPageInfo do
@@ -553,6 +573,20 @@ module RailsAdminDynamicConfig
           field :intro, :ck_editor
           field :table, :ck_editor
           field :second_text, :ck_editor
+        end
+
+        config.model ContactsPageInfo do
+          navigation_label_key :contacts
+
+          field :phones
+          field :fax_phones
+          field :skype_names
+          field :emails
+          field :translations, :globalize_tabs
+        end
+
+        config.model_translation ContactsPageInfo do
+          field :address
         end
       end
     end

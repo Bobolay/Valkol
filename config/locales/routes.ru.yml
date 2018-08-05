@@ -1,0 +1,8 @@
+ru:
+  routes:
+    services: "uslugi"
+    publications: "publications"
+    interesting_articles: "interesting_articles"
+    about-us: "o-nas"
+    pricing: "pricing"
+    contacts: "contakty"

@@ -1,0 +1,8 @@
+en:
+  routes:
+    services: "services"
+    publications: "publications"
+    interesting_articles: "interesting_articles"
+    about-us: "about-us"
+    pricing: "pricing"
+    contacts: "contacts"

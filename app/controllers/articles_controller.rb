@@ -13,10 +13,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def index_with_filter
-
-  end
-
   def show
     @article = resource_class.published.where(url_fragment: params[:id]).first
     if @article.nil?

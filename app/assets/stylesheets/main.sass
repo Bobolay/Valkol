@@ -95,11 +95,19 @@ body
       .font14
         color: white
         padding: 15px
+    .popup-2
+      a
+        color: white
     .popup-3
       height: auto
       width: 430px
       top: 0
       transform: translateY(50px)
+
+      .contact-form-popup-header
+        a
+          color: inherit
+
       @media (max-width: 640px)
         height: 380px
         width: 330px
@@ -418,7 +426,7 @@ body
         height: 16px
         &:last-child
           border: none
-      a
+      a, span
         text-transform: uppercase
         font-weight: 500
         color: $navy

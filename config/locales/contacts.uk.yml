@@ -1,0 +1,8 @@
+uk:
+  contacts:
+    contact-us: "зв'язатись з нами"
+    labels:
+      phone: "тел.:"
+      fax: "факс.:"
+      skype: "skype:"
+    form-title: "форма зворотнього зв'язку"

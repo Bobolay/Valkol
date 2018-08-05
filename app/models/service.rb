@@ -17,6 +17,12 @@ class Service < ActiveRecord::Base
 
   scope :sort_by_sorting_position, -> { order(sorting_position: :asc) }
   boolean_scope :published
+  scope :with_category, ->(category_or_id) {
+    category_id = category_or_id
+    category_id = category_id.id if category_id.is_a?(ActiveRecord::Base)
+
+    where(service_category_id: category_id )
+  }
 
   default_scope do
     sort_by_sorting_position

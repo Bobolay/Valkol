@@ -9,7 +9,8 @@
         - if @application_forms.try(:any?)
           .medium-4.columns
             .field
-              p.font21.padding замовлення на оцінку нерухомого майна
+              p.font21.padding
+                = t("pricing.downloads-title")
 
               ul.no-bullet.padding
                 - @application_forms.each do |af|
@@ -18,9 +19,10 @@
                       a href=af.file.url
                         .application-icon
                           = embedded_svg_from_assets("filetypes/#{af.file_icon_name}")
-                        | Анкета-замовлення на оцінку для фізичної особи
+                        = af.name
                       br
-                      span> 64kB
+                      span
+                        = Filesize.from("#{af.file_file_size} B").pretty.upcase
 
       = raw @pricing_page_info.table
 

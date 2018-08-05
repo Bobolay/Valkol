@@ -1,0 +1,8 @@
+ru:
+  contacts:
+    contact-us: "связаться с нами"
+    labels:
+      phone: "тел.:"
+      fax: "факс.:"
+      skype: "skype:"
+    form-title: "форма обратной связи"

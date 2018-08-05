@@ -1,0 +1,8 @@
+en:
+  contacts:
+    contact-us: "contact us"
+    labels:
+      phone: "tel.:"
+      fax: "fax.:"
+      skype: "skype:"
+    form-title: "Write us"

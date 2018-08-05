@@ -4,17 +4,21 @@
   .medium-12.columns
     .row
       .medium-12.columns.underlined
-        .header_right історія
+        .header_right
+          = t("about_us.section-titles.history")
       .row
       .medium-3.columns.side_nav
         div data-magellan-expedition="fixed"
           ul
             li
-              a href="#" Історія
+              a href="#"
+                = t("about_us.section-titles.history")
             li
-              a href="#experience" Наш досвід
+              a href="#experience"
+                = t("about_us.section-titles.experience")
             li
-              a href="#team" Команда
+              a href="#team"
+                = t("about_us.section-titles.team")
       .medium-9.columns
         = raw @about_us_page_info.history
 
@@ -22,7 +26,8 @@
 
     .row
       .medium-12.columns.underlined
-        .header_right id="experience" наш досвід
+        .header_right id="experience"
+          = t("about_us.section-titles.experience")
     .row
       .medium-12.columns
         .row
@@ -31,7 +36,8 @@
 
       .row
       .medium-12.columns.underlined
-        .header_right id="team" команда
+        .header_right id="team"
+          = t("about_us.section-titles.team")
     .row
       .medium-12.columns
         .row
