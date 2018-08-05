@@ -14,7 +14,6 @@ class PagesController < ApplicationController
 		@publications = Publication.published.featured
 		@interesting_articles = InterestingArticle.published.featured
 		@home_banners = HomeBanner.published.sort_by_sorting_position
-
 	end
 
 	def about_us

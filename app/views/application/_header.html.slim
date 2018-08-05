@@ -8,7 +8,17 @@
               img alt=("Logo header") src=asset_path("Val_logo_header.png")
         .small-8.medium-7.columns
           ul.no-bullet.inline-list.icons
-            li
+            - if @_locale_links.map{ |locale, url| url.present?  }.count > 1
+              - @_locale_links.each do |locale, url|
+                - active = locale.to_s == I18n.locale.to_s
+                li.locale-wrap
+                  - if active
+                    span.locale-link-tag
+                      = "#{locale.to_s.upcase}"
+                  - else
+                    a.locale-link-tag.active href=url
+                      = "#{locale.to_s.upcase}"
+            li.header-button
               a#popup-1 href="#"
                 img alt="phone" src=asset_path("geo.png")
               .popup-1
@@ -16,7 +26,7 @@
                   | вул. Ш.Руставелі, 34а/21
                   br
                   | м. Львів, 72005
-            li
+            li.header-button
               a#popup-2 href="#"
                 img alt="phone" src=asset_path("phone.png")
               .popup-2
@@ -24,7 +34,7 @@
                   | +38 (032) 225 62 08
                   br
                   | +38 (032) 225 62 06
-            li
+            li.header-button
               a#popup-3 href="#"
                 img alt="" src=asset_path("mail.png")
               .popup-3

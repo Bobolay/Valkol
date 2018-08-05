@@ -11,6 +11,33 @@
 @import 'publications2'
 @import 'publications3'
 @import 'contacts'
+
+.locale-wrap
+  margin-left: 10px !important
+  &:first-child
+    margin-left: 20px !important
+
+
+@media #{$small-only}, #{$medium-only}
+  .header-button
+    display: none !important
+
+
+
+.top-bar-section ul li
+  > a, > span
+    color: #FFFFFF
+    display: block
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif
+    font-size: 0.8125rem
+    font-weight: normal
+    padding-left: 1.5625rem
+    padding: 12px 0 12px 1.5625rem
+    text-transform: none
+    width: 100%
+    //min-height: 100%
+    line-height: 4.6875rem
+
 body
   background-image: image-url("stripe.png")
   margin: 0 auto
@@ -69,7 +96,7 @@ body
         color: white
         padding: 15px
     .popup-3
-      height: 260px
+      height: auto
       width: 430px
       top: 0
       transform: translateY(50px)
@@ -84,10 +111,10 @@ body
       .inner-form
         background-color: white
         display: block
-        height: 200px
+        height: auto
         width: 99%
         margin: 0 auto
-        @media (max-width: 640px)
+        //@media (max-width: 640px)
           height: 320px
         .mail-us
           text-transform: uppercase
@@ -97,7 +124,7 @@ body
         form
           padding: 0
           input
-            margin: 0 0 5px !important
+            margin: 0 0 0 0 !important
           textarea
             height: 80px
             margin: 0
@@ -109,6 +136,9 @@ body
           .error
             &.required
               display: none
+          .invalid-required
+            .error.required
+              display: block
     .visible-popup
       &.popup-1, &.popup-2, &.popup-3
         opacity: 1
@@ -250,15 +280,17 @@ body
         li
           @media only screen and (min-width: 40.0625em)
             width: 20%
-          a
+          a, span, .menu-item-tag
+            display: block
             font-size: 1.125em
             text-transform: uppercase
             text-align: center
             width: 100%
             background: linear-gradient(#3C7589, #123B41)
+            padding: 0 25px
             @media only screen and (max-width: 800px)
               font-size: 0.8em
-            &:hover
+            &:hover, &.has-active, &.active
               background: $navy
               @media only screen and (max-width: 40.0625em)
                 background: $red_violet
@@ -269,7 +301,7 @@ body
               width: 100%
               &:last-child
                 border-bottom: 3px solid $blue
-              a
+              a, span, .menu-item-tag
                 font-size: 0.875em
                 text-transform: none
                 color: $navy
@@ -279,7 +311,7 @@ body
                 color: $navy !important
                 @media only screen and (max-width: 40.0625em)
                   font-size: 0.75em
-                &:hover
+                &:hover, &.has-active, &.active
                   background: $red_violet !important
                   color: white !important
 .section

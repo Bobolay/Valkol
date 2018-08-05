@@ -10,13 +10,20 @@
       .medium-4.columns
         .field
           p.font21 читайте також
-          - @service_categories.each do |category|
-            p.font14.padding_side
+          - service_categories.each do |category|
+            - active_category = @service.service_category.try(:id) == category.id
+            p.font14.padding_side class=("has-active" if active_category)
               = category.name
 
             ul.no-bullet.padding_side
-              - category.services.published.sort_by_sorting_position.each do |s|
+              - category.public_services.each do |s|
+                - active_service = @service.id == s.id
                 li
-                  a href=s.url
-                    = s.name
+                  - if active_service
+                    span
+                      = s.name
+                  - else
+
+                    a href=s.url
+                      = s.name
 

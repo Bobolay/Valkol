@@ -24,6 +24,21 @@ $(document).ready(function(){
 });
 
 // general for foundation
+var current_locale = $("html").attr("lang")
+var translations = {
+  ru: {
+    back: "Назад"
+  },
+  uk: {
+    back: "Назад"
+  },
+  en: {
+    back: "Back"
+  }
+}
+
+Foundation.libs.topbar.settings.back_text = translations[current_locale].back
+
 $(document).ready(function() {
     $(document).foundation();
 });
@@ -93,15 +108,18 @@ $(".member").on("click", function(){
 
 // header popup
 
-$("#popup-1").on("click", function(){
+$("#popup-1").on("click", function(e){
+    e.preventDefault()
     $(".popup-1").toggleClass("visible-popup")
 })
 
-$("#popup-2").on("click", function(){
+$("#popup-2").on("click", function(e){
+    e.preventDefault()
     $(".popup-2").toggleClass("visible-popup")
 })
 
-$("#popup-3").on("click", function(){
+$("#popup-3").on("click", function(e){
+    e.preventDefault()
     $(".popup-3").toggleClass("visible-popup")
 })
 

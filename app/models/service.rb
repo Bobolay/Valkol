@@ -15,7 +15,7 @@ class Service < ActiveRecord::Base
     pages :about_us, :contacts, :home, :interesting_articles, :pricing, :publications, :services
   end
 
-  scope :sort_by_sorting_position, -> { order("sorting_position asc") }
+  scope :sort_by_sorting_position, -> { order(sorting_position: :asc) }
   boolean_scope :published
 
   default_scope do

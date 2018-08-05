@@ -10,8 +10,11 @@ class ServiceCategory < ActiveRecord::Base
     pages :about_us, :contacts, :home, :interesting_articles, :pricing, :publications, :services
   end
 
-  scope :sort_by_sorting_position, -> { order("sorting_position asc") }
+  scope :sort_by_sorting_position, -> { order(sorting_position: :asc) }
   scope :published, -> { where(published: 't') }
+  scope :with_translated_services, -> {
+    joins(:services).merge(Service.published.translated)
+  }
 
   def url(locale = I18n.locale)
     return nil if url_fragment.blank?
@@ -22,5 +25,9 @@ class ServiceCategory < ActiveRecord::Base
   def linkable_path
     name_str = name.presence || "[ServiceCategory ##{id}]"
     "#{name_str}"
+  end
+
+  def public_services
+    services.published.translated.sort_by_sorting_position.uniq
   end
 end

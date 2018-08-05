@@ -1,43 +1,44 @@
 .service_list_banner
-	width: 100%
-	height: 250px
-	background-color: grey
-	border-top: 1px solid $main
-	border-bottom: 1px solid $main
+  width: 100%
+  height: 250px
+  background-color: grey
+  border-top: 1px solid $main
+  border-bottom: 1px solid $main
 .bcg_color
-	.service_list
-		.medium-1
-			@media only screen and (max-width: 800px)
-				display: none
-		.lined
-			border-bottom: 1px dotted #BCBEC0
-		ul
-			margin: 0
-			li
-				list-style: none
-				margin-bottom: 30px
-				&:hover
-					.marker
-						color: white
-						background-color: $red_violet
-					a
-						color: $navy
-				a
-					font-size: 1.125em
-					color: $navy
-					margin-left: 20px
-					font-weight: 500
-		p
-			color: $dark_grey
-		.marker
-			height: 53px
-			width: 53px
-			border: 1px solid #BCBEC0
-			font-size: 2.25em
-			color: #BCBEC0
-			display: inline-block
-			text-align: center
-		.main_marker
-			margin: 30px 10px
-		span
-			font-size: 0.5em
+  .service_list
+    .medium-1
+      @media only screen and (max-width: 800px)
+        display: none
+    .lined
+      border-bottom: 1px dotted #BCBEC0
+    ul
+      margin: 0
+      .service-item
+        list-style: none
+        margin-bottom: 30px
+        cursor: pointer
+        &:hover
+          .marker
+            color: white
+            background-color: $red_violet
+          a
+            color: $navy
+        a
+          font-size: 1.125em
+          color: $navy
+          margin-left: 20px
+          font-weight: 500
+    p
+      color: $dark_grey
+    .marker
+      height: 53px
+      width: 53px
+      border: 1px solid #BCBEC0
+      font-size: 2.25em
+      color: #BCBEC0
+      display: inline-block
+      text-align: center
+    .main_marker
+      margin: 30px 10px
+    span
+      font-size: 0.5em

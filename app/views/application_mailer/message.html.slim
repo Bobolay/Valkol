@@ -21,7 +21,7 @@ table border="1"
     td
       |Description
     td
-      = @msg.message_text
+      = @msg.comment
 
 p
   a href="http://#{Rails.application.config.action_mailer.default_url_options[:host]}/admin/#{@msg.class.name.underscore}/#{@msg.id}"

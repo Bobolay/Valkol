@@ -6,7 +6,7 @@ class Certificate < ActiveRecord::Base
   image :image, styles: { small: "220x260#", large: "700x1000>" }
 
   boolean_scope :published
-  scope :sort_by_sorting_position, -> { order("sorting_position asc") }
+  scope :sort_by_sorting_position, -> { order(sorting_position: :asc) }
 
   has_cache do
     pages :about_us

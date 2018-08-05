@@ -12,8 +12,9 @@ class ApplicationController < ActionController::Base
   include Cms::Helpers::NavigationHelper
   include Cms::Helpers::ImageHelper
 
+  initialize_locale_links
+
   before_action :initialize_breadcrumbs
-  before_action :initialize_service_categories
 
   def render_not_found
     @head_title = "Сторінку не знайдено"
@@ -55,7 +56,19 @@ class ApplicationController < ActionController::Base
   helper_method :render_breadcrumbs
   helper_method :render_page_banner
 
-  def initialize_service_categories
-    @service_categories ||= ServiceCategory.published.sort_by_sorting_position
+  def service_categories
+    @service_categories ||= ServiceCategory.published.translated.with_translated_services.sort_by_sorting_position.uniq
   end
+
+  helper_method :service_categories
+
+  def current_service_category_id
+    @service.try(:service_category).try(:id)
+  end
+
+  def current_service_id
+    @service.try(:id)
+  end
+
+  helper_method :current_service_category_id, :current_service_id
 end

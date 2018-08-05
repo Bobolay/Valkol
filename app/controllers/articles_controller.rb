@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = resource_class.published
+    @articles = resource_class.published.translated
 
     set_page_metadata(resource_plural_name)
     set_page_banner_image(@page_instance.try(:page_banner))

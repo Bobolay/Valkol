@@ -1,4 +1,6 @@
-form.ajax-submit action=message_path method="post" show-preloader=""
+- if !defined?(form_class)
+  - form_class = nil
+form.ajax-submit action=message_path method="post" show-preloader="" class=form_class
   .content
     .medium-6.columns
       .input.string required="" required-message="Введіть ім’я"
@@ -9,7 +11,7 @@ form.ajax-submit action=message_path method="post" show-preloader=""
         input name="message[email]" type="text" placeholder="Електронна скринька"
     .medium-6.columns
       .input.text required="" required-message="Введіть текст повідомлення"
-        textarea name="message[message_text]" rows="8" placeholder="Ваше повідомлення"
+        textarea name="message[comment]" rows="8" placeholder="Ваше повідомлення"
       button.right надіслати
 
     .clearfix

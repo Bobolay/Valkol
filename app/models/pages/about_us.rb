@@ -1,10 +1,7 @@
 class Pages::AboutUs < Cms::Page
+  include Cms::LocalizedRoutes::UrlHelper::ActiveRecordExtension
 
-  #has_html_block :history
-  #has_html_block :experience
-  #has_html_block :team
-
-
-
-
+  def url(locale = I18n.locale)
+    url_helpers.send("#{route_name}_#{locale}_path")
+  end
 end

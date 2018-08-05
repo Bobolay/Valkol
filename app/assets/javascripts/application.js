@@ -29,3 +29,4 @@
 
 //= require main.js
 //= require articles
+//= require services

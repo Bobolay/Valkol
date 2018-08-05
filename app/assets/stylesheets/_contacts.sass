@@ -1,65 +1,72 @@
 .contacts_banner
-	height: 250px
-	border-top: 1px solid $main
-	border-bottom: 1px solid $main
-	transition: all 1s
-	position: relative
-	#location-canvas
-		width: 100%
-		height: 100%
-		position: relative
-		top: -73px
+  height: 250px
+  border-top: 1px solid $main
+  border-bottom: 1px solid $main
+  transition: all 1s
+  position: relative
+  #location-canvas
+    width: 100%
+    height: 100%
+    position: relative
+    top: -73px
 
 .scale_twice
-	&.contacts_banner
-		height: 400px
+  &.contacts_banner
+    height: 400px
 .scale
-	position: absolute
-	right: 20%
-	bottom: -30px
-	height: 20px
-	width: 20px
-	display: block
-	border: 1px solid $grey
-	z-index: 1
-	&:before, &:after
-		content: ""
-		position: absolute
-		background-color: $grey
-	&:before
-		width: 12px
-		height: 1px
-		left: 3px
-		top: 9px
-	&:after
-		top: 3px
-		width: 1px
-		height: 12px
-		left: 9px
-		transition: all 1.5s
-	&.minus
-		&:after
-			transform: rotateX(90deg)
+  position: absolute
+  right: 20%
+  bottom: -30px
+  height: 20px
+  width: 20px
+  display: block
+  border: 1px solid $grey
+  z-index: 1
+  &:before, &:after
+    content: ""
+    position: absolute
+    background-color: $grey
+  &:before
+    width: 12px
+    height: 1px
+    left: 3px
+    top: 9px
+  &:after
+    top: 3px
+    width: 1px
+    height: 12px
+    left: 9px
+    transition: all 1.5s
+  &.minus
+    &:after
+      transform: rotateX(90deg)
 .bcg_color
-	position: relative
+  position: relative
 .table_contacts
-	border: none
-	border-collapse: collapse
-	tr 
-		height: 50px
-		vertical-align: initial
-		&:nth-of-type(even)
-			background-color: transparent
-	td 
-		p 
-			font-size: 1.31em
-			color: grey
-		.contacts_numbers
-			color: $main
-form
-	padding-top: 10px
-	input[type="text"]
-		margin: 0 0 1.3rem 0 !important
-	button
-		background: linear-gradient(#3C7589, #123B41)
-		text-transform: uppercase
+  border: none
+  border-collapse: collapse
+  tr
+    height: 50px
+    vertical-align: initial
+    &:nth-of-type(even)
+      background-color: transparent
+  td
+    p
+      font-size: 1.31em
+      color: grey
+    .contacts_numbers
+      color: $main
+form.contacts-message-form
+  padding-top: 10px
+  .input
+    padding-bottom: 26px
+  input[type="text"]
+    margin: 0 0 0 0 !important
+  .error
+    bottom: 5px
+  button
+    background: linear-gradient(#3C7589, #123B41)
+    text-transform: uppercase
+  textarea
+    height: 163px
+    margin-bottom: 0

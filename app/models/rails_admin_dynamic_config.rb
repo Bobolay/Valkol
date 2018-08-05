@@ -469,11 +469,36 @@ module RailsAdminDynamicConfig
         config.model Message do
           navigation_label_key :feedbacks, 1
 
-          show do
+          list do
+            scopes do
+              [:all, *Message::STATUSES]
+            end
+
+            field :status
             field :name
             field :phone
             field :email
-            field :message_text
+            field :last_time_contacted
+            field :comment
+          end
+
+          edit do
+            field :status
+            field :name do
+              read_only true
+            end
+            field :phone do
+              read_only true
+            end
+            field :email do
+              read_only true
+            end
+            field :comment do
+              read_only true
+            end
+
+            field :notes
+            field :last_time_contacted
           end
         end
 

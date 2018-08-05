@@ -39,16 +39,16 @@
           .header_right id="experience" наш досвід
 
       .row.section_2.padding_side
-        - @service_categories.each_with_index do |category, index|
+        - service_categories.each_with_index do |category, index|
           - columns = 6
-          - columns = 12 if index == @service_categories.count - 1 && index % 2 == 0
+          - columns = 12 if index == service_categories.count - 1 && index % 2 == 0
 
           .columns class="medium-#{columns}"
             p.font24.section_header
               a href=category.url
                 = category.name
             ul.dashed
-              - category.services.published.sort_by_sorting_position.each do |s|
+              - category.public_services.each do |s|
                 li
                   a href=s.url
                     = s.name

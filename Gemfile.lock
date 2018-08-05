@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/pkorenev/cms.git
-  revision: 21e1df019e7553c48d583e9d78a95ce0b54e6f56
+  revision: f81e3ed1339285ba41b7c4fad315692e31ebef9e
   specs:
     cms (0.1.2)
       rails_admin

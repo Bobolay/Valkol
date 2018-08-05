@@ -8,23 +8,29 @@
             span
       section.top-bar-section
         ul
-          li
-            a href=about_us_path про нас
-          li.has-dropdown
-            a href=services_path послуги
-            ul.dropdown
-              - @service_categories.each do |category|
-                li.has-dropdown
-                  a href=category.url
-                    = category.name
-                  ul.dropdown
-                    - category.services.published.sort_by_sorting_position.each do |s|
-                      li
-                        a href=s.url
-                           = s.name
-          li
-            a href=pricing_path  ціни
-          li
-            a href=publications_path  публікації
-          li
-            a href=contacts_path контакти
+          - main_menu.each do |item|
+            - is_services_item = item[:key].to_sym == :services
+            li class=("has-dropdown" if is_services_item && service_categories.present?)
+              - if item[:active]
+                span.active
+                  = item[:name]
+              - else
+                a href=item[:url] class=("has-active" if item[:has_active])
+                  = item[:name]
+              - if is_services_item && service_categories.present?
+                ul.dropdown
+                  - service_categories.each do |category|
+                    - active_category = current_service_category_id == category.id
+                    li.has-dropdown class=("has-active" if active_category)
+                      a href=category.url class=("has-active" if active_category)
+                        = category.name
+                      ul.dropdown
+                        - category.public_services.each do |s|
+                          - active_service = current_service_id == s.id
+                          li
+                            - if active_service
+                              span.menu-item-tag.active
+                                = s.name
+                            - else
+                              a.menu-item-tag href=s.url
+                                 = s.name

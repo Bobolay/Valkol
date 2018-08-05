@@ -6,7 +6,7 @@ class HomeBanner < ActiveRecord::Base
   image :image, styles: { small: "192x108#", large: "1920x1080#" }
 
   boolean_scope :published
-  scope :sort_by_sorting_position, -> { order("sorting_position asc") }
+  scope :sort_by_sorting_position, -> { order(sorting_position: :asc) }
   default_scope do
     sort_by_sorting_position
   end

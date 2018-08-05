@@ -10,5 +10,5 @@ end
 
 Cms.config.use_translations true
 
-Cms.config.sitemap_controller({entries_for_resources: {locales: [:uk, :en] } })
+Cms.config.sitemap_controller({entries_for_resources: {locales: [:uk] } })
 
