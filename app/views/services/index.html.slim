@@ -11,7 +11,7 @@
           .medium-11.columns
             p.font24.section_header
               = category.name
-            == slim(category.content)
+            = raw category.content
             ul
               - category.public_services.each_with_index do |s, i|
                 li.service-item
