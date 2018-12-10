@@ -13,7 +13,7 @@
                   span.active
                     = item[:name]
                 - else
-                  a href=about_us_path class=("has-active" if item[:has_active])
+                  a href=item[:url] class=("has-active" if item[:has_active])
                     = item[:name]
 
     .row

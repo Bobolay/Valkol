@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 		@certificates = Certificate.published.sort_by_sorting_position
 		@publications = Publication.published.featured.translated.uniq
 		@interesting_articles = InterestingArticle.published.featured.translated.uniq
-		@home_banners = HomeBanner.published.sort_by_sorting_position
+		@home_banners = HomeBanner.published.sort_by_sorting_position.limit(7)
 	end
 
 	def about_us
